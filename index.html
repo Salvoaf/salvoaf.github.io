@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Updated Viewport Meta Tag -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0">
     <title>Salvatore Arancio Febbo - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
@@ -16,24 +17,39 @@
             <img src="images/profile.png" alt="Profile picture of Salvatore Arancio Febbo" class="profile-pic" loading="lazy">
             <h1>Salvatore Arancio Febbo</h1>
             <p>Based in Pisa</p>
-            <!-- Hamburger Menu Button -->
+            <!-- Hamburger Menu Button (Visible on Mobile Only) -->
             <button class="nav-toggle" aria-label="Open navigation menu">
                 &#9776;
             </button>
-            <nav>
+            <!-- Desktop Navigation Links -->
+            <nav class="nav">
                 <ul class="nav-links">
                     <li><a href="#current-research">Research</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#education">Education</a></li>
-                    <li><a href="#contact">Contact</a></li> <!-- Contact Link -->
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
+    <!-- Sidebar for Mobile Navigation -->
+    <div class="sidebar" id="sidebar">
+        <button class="close-btn" id="close-btn">&times;</button>
+        <ul class="sidebar-links">
+            <li><a href="#current-research" class="sidebar-link">Research</a></li>
+            <li><a href="#experience" class="sidebar-link">Experience</a></li>
+            <li><a href="#education" class="sidebar-link">Education</a></li>
+            <li><a href="#contact" class="sidebar-link">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Sidebar Overlay -->
+    <div class="overlay" id="overlay"></div>
+
     <main>
         <!-- Current Research Activities Section -->
-        <section class="current-research" data-aos="fade-up">
+        <section class="current-research" id="current-research" data-aos="fade-up">
             <h2>Current Research Activities</h2>
             <p>
                 I am currently working as a research fellow at the University of Pisa, focusing on the <strong>4DDS (4D Drone Swarms)</strong> project. This project involves the development of autonomous vehicles and drone swarms operating in four dimensions: aerial, terrestrial, surface, and underwater. The project leverages advanced technologies such as <strong>Artificial Intelligence</strong> and <strong>swarm robotics</strong>, integrating swarm intelligence techniques for the autonomous coordination of drones.
@@ -47,7 +63,7 @@
         </section>
 
         <!-- Professional Experiences Section -->
-        <section class="experience" data-aos="fade-up" data-aos-delay="200">
+        <section class="experience" id="experience" data-aos="fade-up" data-aos-delay="200">
             <h2>Professional Experiences</h2>
             
             <div class="job">
@@ -81,7 +97,7 @@
         </section>
 
         <!-- Education and Qualifications Section -->
-        <section class="education" data-aos="fade-up" data-aos-delay="400">
+        <section class="education" id="education" data-aos="fade-up" data-aos-delay="400">
             <h2>Education and Qualifications</h2>
             <div class="education-item">
                 <h3>University of Pisa</h3>
@@ -123,21 +139,25 @@
 
     <footer>
         <div class="footer-contact">
+            <!-- Download CV Link (Visible on All Devices) -->
+            <a href="documents/cv.pdf" download class="download-cv">
+                <img src="https://cdn2.iconfinder.com/data/icons/business-804/24/resume-portfolie-cv-profile-512.png" alt="CV Icon" class="footer-icon">
+                Download CV
+            </a>
+            <!-- Phone Contact -->
             <p>
                 <img src="https://cdn0.iconfinder.com/data/icons/essentials-solid-glyphs-vol-1/100/Phone-Call-Telephone-512.png" alt="Phone Icon" class="footer-icon">
                 <a href="tel:+393663046611">+39 366 3046611</a>
             </p>
+            <!-- Email Contact -->
             <p>
                 <img src="https://cdn3.iconfinder.com/data/icons/streamline-icon-set-free-pack/48/Streamline-58-512.png" alt="Email Icon" class="footer-icon">
                 <a href="mailto:s.aranciofebbo@studenti.unipi.it">s.aranciofebbo@studenti.unipi.it</a>
             </p>
+            <!-- GitHub Link -->
             <p>
                 <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png" alt="GitHub Icon" class="footer-icon">
                 <a href="https://github.com/Salvoaf" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </p>
-            <p>
-                <img src="https://cdn2.iconfinder.com/data/icons/business-804/24/resume-portfolie-cv-profile-512.png" alt="CV Icon" class="footer-icon">
-                <a href="documents/cv.pdf" download>Download CV</a>
             </p>
         </div>
         <p>&copy; 2024 Salvatore Arancio Febbo. All rights reserved.</p>
@@ -152,13 +172,46 @@
         once: true // Whether animation should happen only once
       });
     </script>
-    <!-- JavaScript for Hamburger Menu -->
+    <!-- JavaScript for Hamburger Menu and Sidebar -->
     <script>
         const navToggle = document.querySelector('.nav-toggle');
-        const navLinks = document.querySelector('.nav-links');
+        const sidebar = document.getElementById('sidebar');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('overlay');
+        const sidebarLinks = document.querySelectorAll('.sidebar-link');
 
+        // Open Sidebar and Show Overlay
         navToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-active');
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+            navToggle.setAttribute('aria-expanded', 'true');
+            sidebar.setAttribute('aria-hidden', 'false');
+        });
+
+        // Close Sidebar and Hide Overlay
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+            sidebar.setAttribute('aria-hidden', 'true');
+        });
+
+        // Close Sidebar When a Link is Clicked
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+                navToggle.setAttribute('aria-expanded', 'false');
+                sidebar.setAttribute('aria-hidden', 'true');
+            });
+        });
+
+        // Close Sidebar When Clicking on Overlay
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+            sidebar.setAttribute('aria-hidden', 'true');
         });
     </script>
 </body>

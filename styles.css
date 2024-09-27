@@ -10,9 +10,7 @@ body {
 }
 
 /* Global box-sizing */
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
@@ -74,12 +72,11 @@ p {
     font-size: 1.1rem;
 }
 
-nav {
+nav.nav {
     margin-top: 1rem;
-    position: relative;
 }
 
-/* Navigation Links */
+/* Navigation Links - Desktop */
 .nav-links {
     list-style: none;
     padding: 0;
@@ -106,7 +103,7 @@ nav {
 
 /* Hamburger Menu - Hidden by Default */
 .nav-toggle {
-    display: none;
+    display: none; /* Hidden on Desktop */
     background: none;
     border: none;
     color: #FFFFFF;
@@ -115,6 +112,75 @@ nav {
     position: absolute;
     top: 1rem;
     right: 1.5rem;
+}
+
+/* Sidebar Navigation - Mobile */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    width: 250px;
+    height: 100%;
+    background-color: #2C3E50;
+    padding-top: 60px; /* Space for close button */
+    transition: left 0.3s ease;
+    z-index: 1000; /* Above other elements */
+}
+
+.sidebar.active {
+    left: 0; /* Slide in */
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-links li {
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.sidebar-links li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.sidebar-links li a:hover {
+    color: #3498DB;
+}
+
+/* Sidebar Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 999; /* Just below the sidebar */
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 /* Main Content */
@@ -291,6 +357,27 @@ footer {
     margin-bottom: 1rem;
 }
 
+.footer-contact a.download-cv {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #FFFFFF;
+    margin: 0.5rem 1rem;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a.download-cv:hover {
+    color: #3498DB;
+}
+
+.footer-contact a.download-cv .footer-icon {
+    width: 32px; /* Slightly larger icons */
+    height: 32px;
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
 .footer-contact p {
     margin: 0.5rem 1rem;
     font-size: 1.2rem;
@@ -315,7 +402,8 @@ footer {
     color: #3498DB;
 }
 
-.footer-contact p:hover .footer-icon {
+.footer-contact p:hover .footer-icon,
+.footer-contact a.download-cv:hover .footer-icon {
     transform: scale(1.1); /* Slightly enlarge on hover */
     opacity: 0.8;
 }
@@ -327,6 +415,21 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    /* Show Hamburger Menu */
+    .nav-toggle {
+        display: block; /* Visible on Mobile */
+    }
+
+    /* Hide Desktop Navigation Links on Mobile */
+    .nav-links {
+        display: none; /* Hidden on Mobile */
+    }
+
+    /* Sidebar Active */
+    .sidebar.active {
+        left: 0; /* Slide in */
+    }
+
     /* Adjust Profile Picture */
     .profile-pic {
         width: 100px;
@@ -360,7 +463,8 @@ footer p {
     }
 
     /* Adjust Footer Icons */
-    .footer-contact p {
+    .footer-contact p,
+    .footer-contact a.download-cv {
         font-size: 1rem;
     }
 
@@ -384,38 +488,16 @@ footer p {
         font-size: 0.9rem;
     }
 
-    /* Show Hamburger Menu Button */
-    .nav-toggle {
-        display: block;
+    /* Sidebar Styles */
+    .sidebar {
+        width: 200px; /* Slightly narrower on Mobile */
     }
 
-    /* Hide Navigation Links by Default on Mobile */
-    .nav-links {
-        flex-direction: column;
-        max-height: 0;
-        width: 100%;
-        background-color: #2C3E50;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        transition: max-height 0.3s ease;
-    }
-
-    /* Show Navigation Links when Active */
-    .nav-links.nav-active {
-        max-height: 500px; /* Arbitrary large value to show all links */
-    }
-
-    .nav-links li {
+    .sidebar-links li {
         margin: 1rem 0;
     }
 
-    /* Adapt Contact Section Padding */
-    .contact {
-        padding: 1.5rem;
-    }
-
-    /* Add Smooth Scrolling */
+    /* Smooth Scrolling */
     html {
         scroll-behavior: smooth;
     }
