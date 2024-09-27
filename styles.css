@@ -1,0 +1,347 @@
+/* Import Fonts */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #ECF0F1; /* Light Gray Background */
+    color: #2C3E50; /* Dark Blue-Gray Text */
+}
+
+/* Header */
+header {
+    background-color: #2C3E50; /* Dark Blue-Gray Header */
+    color: #FFFFFF; /* White Text */
+    padding: 2rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Hide overflow for decorative elements */
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 100px;
+    height: 100px;
+    background-image: url('images/neuron.jpg'); /* Path to your neuron JPG */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.3; /* Subtle transparency */
+    transform: rotate(45deg);
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    width: 150px;
+    height: 150px;
+    background-image: url('images/neuron.jpg'); /* Path to your neuron JPG */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    transform: rotate(-30deg);
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #FFFFFF;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif; /* Clean Font for the Name */
+    font-size: 2.5rem;
+    margin: 0.5rem 0;
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+nav {
+    margin-top: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #3498DB;
+}
+
+/* Main Content */
+main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: -80px; /* Lift content above the header */
+    position: relative;
+    z-index: 1;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    color: #3498DB; /* Blue for Section Titles */
+    border-bottom: 2px solid #3498DB;
+    padding-bottom: 0.5rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.job, .education-item, .current-research {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: #F8F9FA; /* Very Light Gray for Sections */
+    border-left: 5px solid #3498DB; /* Blue Borders */
+    border-radius: 5px;
+    position: relative;
+}
+
+.current-research {
+    background-color: #F0F4F7; /* Slightly Different Light Gray */
+    border-left: 5px solid #2980B9; /* Darker Blue for Emphasis */
+}
+
+.current-research::before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: -50px;
+    width: 80px;
+    height: 80px;
+    background-image: url('images/neuron.jpg'); /* Path to your neuron JPG */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+}
+
+.current-research::after {
+    content: "";
+    position: absolute;
+    bottom: 20%;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background-image: url('images/neuron.jpg'); /* Path to your neuron JPG */
+    background-size: contain;
+    background-repeat: no-repeat;
+    opacity: 0.1;
+}
+
+.section-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.job ul, .current-research ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+}
+
+.job li, .current-research li {
+    margin-bottom: 0.5rem;
+}
+
+h3 {
+    margin-bottom: 0.2rem;
+    font-family: 'Roboto', sans-serif;
+    color: #2C3E50; /* Dark Blue-Gray for Job Titles */
+}
+
+span {
+    display: block;
+    font-style: italic;
+    color: #7F8C8D; /* Gray for Dates */
+    margin-bottom: 0.5rem;
+}
+
+.education-item h3, .job h3, .current-research h3 {
+    color: #3498DB; /* Blue for Subtitles */
+}
+
+ul {
+    list-style-type: disc;
+    margin-left: 2rem;
+}
+
+/* Contact Section */
+.contact {
+    padding: 2rem;
+    background-color: #F8F9FA;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.contact h2 {
+    color: #3498DB;
+    border-bottom: 2px solid #3498DB;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form label {
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #BDC3C7;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.contact-form button {
+    padding: 0.7rem;
+    background-color: #3498DB;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #2980B9;
+}
+
+/* Footer */
+footer {
+    background-color: #2C3E50; /* Dark Blue-Gray Footer */
+    color: #FFFFFF;
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-contact {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.footer-contact p {
+    margin: 0.5rem 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.footer-contact .footer-icon {
+    width: 32px; /* Slightly larger icons */
+    height: 32px;
+    margin-right: 0.5rem;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.footer-contact a {
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: #3498DB;
+}
+
+.footer-contact p:hover .footer-icon {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    main {
+        padding: 1rem;
+        margin-top: -50px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .current-research {
+        padding-left: 20px;
+    }
+
+    .section-icon {
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+    }
+
+    .contact-info p,
+    .footer-contact p {
+        font-size: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9rem;
+    }
+
+    .contact-form button {
+        font-size: 0.9rem;
+    }
+
+    .footer-contact .footer-icon {
+        width: 28px;
+        height: 28px;
+        margin-right: 0.4rem;
+    }
+}

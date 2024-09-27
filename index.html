@@ -1,1 +1,152 @@
-Hello World
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salvatore Arancio Febbo - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <img src="images/profile.png" alt="Profile picture of Salvatore Arancio Febbo" class="profile-pic">
+            <h1>Salvatore Arancio Febbo</h1>
+            <p>Based in Pisa</p>
+            <nav>
+                <ul>
+                    <li><a href="#current-research">Research</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li> <!-- Added Contact Link -->
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Current Research Activities Section -->
+        <section class="current-research" data-aos="fade-up">
+            <h2>Current Research Activities</h2>
+            <p>
+                I am currently working as a research fellow at the University of Pisa, focusing on the <strong>4DDS (4D Drone Swarms)</strong> project. This project involves the development of autonomous vehicles and drone swarms operating in four dimensions: aerial, terrestrial, surface, and underwater. The project leverages advanced technologies such as <strong>Artificial Intelligence</strong> and <strong>swarm robotics</strong>, integrating swarm intelligence techniques for the autonomous coordination of drones.
+            </p>
+            <p>
+                Another key aspect is the use of <strong>digital twin</strong>, which allows for the simulation of drones in realistic environments, reducing costs and risks associated with experimentation. The project also includes the use of <strong>Big Data</strong> to manage and analyze the large flow of heterogeneous information collected from sensors, supporting situational awareness and enhancing the decision-making process.
+            </p>
+            <p>
+                The focus is on implementing innovative control and supervision logics, enabling drone swarms to manage complex missions such as environmental monitoring, security operations, and critical transportation, ensuring an increasingly high level of autonomy.
+            </p>
+        </section>
+
+        <!-- Professional Experiences Section -->
+        <section class="experience" data-aos="fade-up" data-aos-delay="200">
+            <h2>Professional Experiences</h2>
+            
+            <div class="job">
+                <h3>Research Fellow at the University of Pisa</h3>
+                <span>October 1, 2024 – Present</span>
+                <p>
+                    Currently engaged in the <strong>4DDS (4D Drone Swarms)</strong> project, developing autonomous vehicles and drone swarms in four dimensions. Utilizing advanced technologies such as Artificial Intelligence, swarm robotics, and digital twin to enhance the autonomy and operational efficiency of drones.
+                </p>
+            </div>
+
+            <div class="job">
+                <h3>University of Luxembourg Intern</h3>
+                <span>April 2024 – June 2024</span>
+                <p>
+                    Continued my master's thesis initiated at FlySight.
+                </p>
+            </div>
+
+            <div class="job">
+                <h3>FlySight Intern</h3>
+                <span>January 2024 – April 2024</span>
+                <p>
+                    Actively collaborated with the Research and Development team, applying the knowledge acquired during my studies in the field of artificial intelligence for my thesis. 
+                    <strong>Skills Acquired:</strong>
+                    <ul>
+                        <li>Object Detection with Event Camera</li>
+                        <li>SLAM in ROS Environment Using Event Camera</li>
+                    </ul>
+                </p>
+            </div>
+        </section>
+
+        <!-- Education and Qualifications Section -->
+        <section class="education" data-aos="fade-up" data-aos-delay="400">
+            <h2>Education and Qualifications</h2>
+            <div class="education-item">
+                <h3>University of Pisa</h3>
+                <span>Master's Degree in Artificial Intelligence and Data Engineering (2021-2024)</span>
+                <p>Specialized in machine learning, deep learning, data management, and AI applications.</p>
+            </div>
+            <div class="education-item">
+                <h3>University of Pisa</h3>
+                <span>Bachelor's Degree in Computer Engineering (2015-2021)</span>
+                <p>Focused on the fundamentals of programming and engineering principles.</p>
+            </div>
+            <div class="education-item">
+                <h3>I.I.S "Enrico Fermi"</h3>
+                <span>Business Information Systems (SIA) (2010-2015)</span>
+                <p>Specialized in business information systems, focusing on accounting, economics, law, and business management through the use of IT tools.</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact" data-aos="fade-up" data-aos-delay="600">
+            <h2>Contact Me</h2>
+            <p>If you'd like to get in touch, feel free to reach out through any of the platforms below or fill out the contact form.</p>
+            
+            <!-- Optional Contact Form -->
+            <form action="https://formspree.io/f/mwkaykvl" method="POST" class="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="_replyto" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-contact">
+            <p>
+                <img src="https://cdn0.iconfinder.com/data/icons/essentials-solid-glyphs-vol-1/100/Phone-Call-Telephone-512.png" alt="Phone Icon" class="footer-icon">
+                <a href="tel:+393663046611">+39 366 3046611</a>
+            </p>
+            <p>
+                <img src="https://cdn3.iconfinder.com/data/icons/streamline-icon-set-free-pack/48/Streamline-58-512.png" alt="Email Icon" class="footer-icon">
+                <a href="mailto:s.aranciofebbo@studenti.unipi.it">s.aranciofebbo@studenti.unipi.it</a>
+            </p>
+            <p>
+                <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png" alt="GitHub Icon" class="footer-icon">
+                <a href="https://github.com/Salvoaf" target="_blank" rel="noopener noreferrer">GitHub</a>
+            </p>
+            <p>
+                <img src="https://cdn2.iconfinder.com/data/icons/business-804/24/resume-portfolie-cv-profile-512.png" alt="CV Icon" class="footer-icon">
+                <a href="documents/cv.pdf" download>Download CV</a>
+            </p>
+        </div>
+        <p>&copy; 2024 Salvatore Arancio Febbo. All rights reserved.</p>
+    </footer>
+
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800, // Animation duration
+        easing: 'ease-in-out', // Easing type
+        once: true // Whether animation should happen only once
+      });
+    </script>
+</body>
+</html>
