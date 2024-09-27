@@ -1,15 +1,15 @@
-/* Importazione Font */
+/* Import Fonts */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #ECF0F1; /* Sfondo Grigio Chiaro */
-    color: #2C3E50; /* Testo Blu-Grigio Scuro */
-    overflow-x: hidden; /* Previene l'overflow orizzontale */
+    background-color: #ECF0F1; /* Light Gray Background */
+    color: #2C3E50; /* Dark Blue-Gray Text */
+    overflow-x: hidden; /* Prevents horizontal overflow */
 }
 
-/* Applicazione Globale di box-sizing */
+/* Global box-sizing */
 *,
 *::before,
 *::after {
@@ -18,12 +18,12 @@ body {
 
 /* Header */
 header {
-    background-color: #2C3E50; /* Header Blu-Grigio Scuro */
-    color: #FFFFFF; /* Testo Bianco */
+    background-color: #2C3E50; /* Dark Blue-Gray Header */
+    color: #FFFFFF; /* White Text */
     padding: 2rem 0;
     text-align: center;
     position: relative;
-    overflow: hidden; /* Nasconde elementi decorativi fuori dal viewport */
+    overflow: hidden; /* Hide overflow for decorative elements */
 }
 
 header::before {
@@ -33,10 +33,10 @@ header::before {
     left: 5%;
     width: 100px;
     height: 100px;
-    background-image: url('images/neuron.jpg'); /* Percorso alla tua immagine neuron.jpg */
+    background-image: url('images/neuron.jpg'); /* Path to your neuron.jpg */
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.3; /* Trasparenza sottile */
+    opacity: 0.3; /* Subtle transparency */
     transform: rotate(45deg);
 }
 
@@ -47,7 +47,7 @@ header::after {
     right: 5%;
     width: 150px;
     height: 150px;
-    background-image: url('images/neuron.jpg'); /* Percorso alla tua immagine neuron.jpg */
+    background-image: url('images/neuron.jpg'); /* Path to your neuron.jpg */
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.2;
@@ -65,7 +65,7 @@ header::after {
 }
 
 h1 {
-    font-family: 'Roboto', sans-serif; /* Font Pulito per il Nome */
+    font-family: 'Roboto', sans-serif; /* Clean Font for the Name */
     font-size: 2.5rem;
     margin: 0.5rem 0;
 }
@@ -79,7 +79,7 @@ nav {
     position: relative;
 }
 
-/* Link di Navigazione */
+/* Navigation Links */
 .nav-links {
     list-style: none;
     padding: 0;
@@ -104,7 +104,7 @@ nav {
     color: #3498DB;
 }
 
-/* Pulsante Hamburger - Nascosto di Default */
+/* Hamburger Menu - Hidden by Default */
 .nav-toggle {
     display: none;
     background: none;
@@ -117,7 +117,7 @@ nav {
     right: 1.5rem;
 }
 
-/* Layout Principale */
+/* Main Content */
 main {
     padding: 2rem;
     max-width: 900px;
@@ -125,7 +125,7 @@ main {
     background-color: #FFFFFF;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin-top: -80px; /* Solleva il contenuto sopra l'header */
+    margin-top: -80px; /* Lift content above the header */
     position: relative;
     z-index: 1;
 }
@@ -135,7 +135,7 @@ section {
 }
 
 h2 {
-    color: #3498DB; /* Blu per i Titoli delle Sezioni */
+    color: #3498DB; /* Blue for Section Titles */
     border-bottom: 2px solid #3498DB;
     padding-bottom: 0.5rem;
     font-family: 'Roboto', sans-serif;
@@ -144,15 +144,15 @@ h2 {
 .job, .education-item, .current-research {
     margin-bottom: 1.5rem;
     padding: 1rem;
-    background-color: #F8F9FA; /* Grigio Molto Chiaro per le Sezioni */
-    border-left: 5px solid #3498DB; /* Bordo Blu */
+    background-color: #F8F9FA; /* Very Light Gray for Sections */
+    border-left: 5px solid #3498DB; /* Blue Borders */
     border-radius: 5px;
     position: relative;
 }
 
 .current-research {
-    background-color: #F0F4F7; /* Grigio Leggermente Differente */
-    border-left: 5px solid #2980B9; /* Blu Più Scuro per Enfasi */
+    background-color: #F0F4F7; /* Slightly Different Light Gray */
+    border-left: 5px solid #2980B9; /* Darker Blue for Emphasis */
 }
 
 .current-research::before {
@@ -162,7 +162,7 @@ h2 {
     left: -50px;
     width: 80px;
     height: 80px;
-    background-image: url('images/neuron.jpg'); /* Percorso alla tua immagine neuron.jpg */
+    background-image: url('images/neuron.jpg'); /* Path to your neuron.jpg */
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.1;
@@ -175,7 +175,7 @@ h2 {
     right: -50px;
     width: 100px;
     height: 100px;
-    background-image: url('images/neuron.jpg'); /* Percorso alla tua immagine neuron.jpg */
+    background-image: url('images/neuron.jpg'); /* Path to your neuron.jpg */
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.1;
@@ -200,18 +200,18 @@ h2 {
 h3 {
     margin-bottom: 0.2rem;
     font-family: 'Roboto', sans-serif;
-    color: #2C3E50; /* Titoli di Lavoro Blu-Grigio Scuro */
+    color: #2C3E50; /* Dark Blue-Gray for Job Titles */
 }
 
 span {
     display: block;
     font-style: italic;
-    color: #7F8C8D; /* Grigio per le Date */
+    color: #7F8C8D; /* Gray for Dates */
     margin-bottom: 0.5rem;
 }
 
 .education-item h3, .job h3, .current-research h3 {
-    color: #3498DB; /* Blu per Sottotitoli */
+    color: #3498DB; /* Blue for Subtitles */
 }
 
 ul {
@@ -219,7 +219,7 @@ ul {
     margin-left: 2rem;
 }
 
-/* Sezione Contatto */
+/* Contact Section */
 .contact {
     padding: 2rem;
     background-color: #F8F9FA;
@@ -275,7 +275,7 @@ ul {
 
 /* Footer */
 footer {
-    background-color: #2C3E50; /* Footer Blu-Grigio Scuro */
+    background-color: #2C3E50; /* Dark Blue-Gray Footer */
     color: #FFFFFF;
     text-align: center;
     padding: 2rem 1rem;
@@ -299,7 +299,7 @@ footer {
 }
 
 .footer-contact .footer-icon {
-    width: 32px; /* Icone leggermente più grandi */
+    width: 32px; /* Slightly larger icons */
     height: 32px;
     margin-right: 0.5rem;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -316,7 +316,7 @@ footer {
 }
 
 .footer-contact p:hover .footer-icon {
-    transform: scale(1.1); /* Ingrandisce leggermente al passaggio del mouse */
+    transform: scale(1.1); /* Slightly enlarge on hover */
     opacity: 0.8;
 }
 
@@ -327,19 +327,19 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    /* Riduci la dimensione delle immagini del profilo */
+    /* Adjust Profile Picture */
     .profile-pic {
         width: 100px;
         height: 100px;
     }
 
-    /* Adatta il padding principale */
+    /* Adjust Main Padding */
     main {
         padding: 1rem;
         margin-top: -50px;
     }
 
-    /* Adatta i titoli */
+    /* Adjust Headings */
     h1 {
         font-size: 2rem;
     }
@@ -348,7 +348,7 @@ footer p {
         font-size: 1.8rem;
     }
 
-    /* Adatta le icone delle sezioni */
+    /* Adjust Section Icons */
     .current-research {
         padding-left: 20px;
     }
@@ -359,7 +359,7 @@ footer p {
         margin-right: 5px;
     }
 
-    /* Adatta le icone nel footer */
+    /* Adjust Footer Icons */
     .footer-contact p {
         font-size: 1rem;
     }
@@ -370,7 +370,7 @@ footer p {
         margin-right: 0.4rem;
     }
 
-    /* Adatta il modulo di contatto */
+    /* Adjust Contact Form Inputs */
     .contact {
         padding: 1.5rem;
     }
@@ -384,12 +384,12 @@ footer p {
         font-size: 0.9rem;
     }
 
-    /* Mostra il pulsante Hamburger */
+    /* Show Hamburger Menu Button */
     .nav-toggle {
         display: block;
     }
 
-    /* Nascondi i link di navigazione di default su mobile */
+    /* Hide Navigation Links by Default on Mobile */
     .nav-links {
         flex-direction: column;
         max-height: 0;
@@ -401,16 +401,21 @@ footer p {
         transition: max-height 0.3s ease;
     }
 
-    /* Mostra i link di navigazione quando attivi */
+    /* Show Navigation Links when Active */
     .nav-links.nav-active {
-        max-height: 500px; /* Valore arbitrario per mostrare tutti i link */
+        max-height: 500px; /* Arbitrary large value to show all links */
     }
 
     .nav-links li {
         margin: 1rem 0;
     }
 
-    /* Aggiunta di scorrimento fluido */
+    /* Adapt Contact Section Padding */
+    .contact {
+        padding: 1.5rem;
+    }
+
+    /* Add Smooth Scrolling */
     html {
         scroll-behavior: smooth;
     }
