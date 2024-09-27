@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <!-- Meta Tag for Responsiveness -->
@@ -140,25 +140,25 @@
     <footer>
         <div class="footer-contact">
             <!-- Download CV Link (Visible on All Devices) -->
-            <a href="documents/cv.pdf" download class="download-cv">
-                <img src="https://cdn2.iconfinder.com/data/icons/business-804/24/resume-portfolie-cv-profile-512.png" alt="CV Icon" class="footer-icon">
-                Download CV
+            <a href="documents/cv.pdf" download class="footer-icon-link" aria-label="Download CV">
+                <img src="https://cdn2.iconfinder.com/data/icons/business-804/24/resume-portfolie-cv-profile-512.png" alt="Download CV" class="footer-icon">
             </a>
             <!-- Phone Contact -->
-            <p>
-                <img src="https://cdn0.iconfinder.com/data/icons/essentials-solid-glyphs-vol-1/100/Phone-Call-Telephone-512.png" alt="Phone Icon" class="footer-icon">
-                <a href="tel:+393663046611">+39 366 3046611</a>
-            </p>
+            <a href="tel:+393663046611" class="footer-icon-link" aria-label="Call Phone">
+                <img src="https://cdn0.iconfinder.com/data/icons/essentials-solid-glyphs-vol-1/100/Phone-Call-Telephone-512.png" alt="Call Phone" class="footer-icon">
+            </a>
             <!-- Email Contact -->
-            <p>
-                <img src="https://cdn3.iconfinder.com/data/icons/streamline-icon-set-free-pack/48/Streamline-58-512.png" alt="Email Icon" class="footer-icon">
-                <a href="mailto:s.aranciofebbo@studenti.unipi.it">s.aranciofebbo@studenti.unipi.it</a>
-            </p>
+            <a href="mailto:s.aranciofebbo@studenti.unipi.it" class="footer-icon-link" aria-label="Send Email">
+                <img src="https://cdn3.iconfinder.com/data/icons/streamline-icon-set-free-pack/48/Streamline-58-512.png" alt="Send Email" class="footer-icon">
+            </a>
             <!-- GitHub Link -->
-            <p>
-                <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png" alt="GitHub Icon" class="footer-icon">
-                <a href="https://github.com/Salvoaf" target="_blank" rel="noopener noreferrer">GitHub</a>
-            </p>
+            <a href="https://github.com/Salvoaf" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="Visit GitHub Profile">
+                <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png" alt="GitHub Profile" class="footer-icon">
+            </a>
+            <!-- LinkedIn Link -->
+            <a href="https://www.linkedin.com/in/salvatore-arancio-febbo-43b61a180/" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="Visit LinkedIn Profile">
+                <img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-512.png" alt="LinkedIn Profile" class="footer-icon">
+            </a>
         </div>
         <p>&copy; 2024 Salvatore Arancio Febbo. All rights reserved.</p>
     </footer>
@@ -186,6 +186,8 @@
             overlay.classList.add('active');
             navToggle.setAttribute('aria-expanded', 'true');
             sidebar.setAttribute('aria-hidden', 'false');
+            // Trap focus inside the sidebar
+            closeBtn.focus();
         });
 
         // Function to Close Sidebar and Hide Overlay
@@ -194,6 +196,8 @@
             overlay.classList.remove('active');
             navToggle.setAttribute('aria-expanded', 'false');
             sidebar.setAttribute('aria-hidden', 'true');
+            // Return focus to the hamburger menu
+            navToggle.focus();
         });
 
         // Close Sidebar When a Link is Clicked
