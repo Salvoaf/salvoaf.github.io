@@ -16,8 +16,12 @@
             <img src="images/profile.png" alt="Profile picture of Salvatore Arancio Febbo" class="profile-pic">
             <h1>Salvatore Arancio Febbo</h1>
             <p>Based in Pisa</p>
+            <!-- Hamburger Menu Button -->
+            <button class="nav-toggle" aria-label="Apri menu di navigazione">
+                &#9776;
+            </button>
             <nav>
-                <ul>
+                <ul class="nav-links">
                     <li><a href="#current-research">Research</a></li>
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#education">Education</a></li>
@@ -30,7 +34,7 @@
     <main>
         <!-- Current Research Activities Section -->
         <section class="current-research" data-aos="fade-up">
-            <h2>Current Research Activities</h2>
+            <h2>Current Activities</h2>
             <p>
                 I am currently working as a research fellow at the University of Pisa, focusing on the <strong>4DDS (4D Drone Swarms)</strong> project. This project involves the development of autonomous vehicles and drone swarms operating in four dimensions: aerial, terrestrial, surface, and underwater. The project leverages advanced technologies such as <strong>Artificial Intelligence</strong> and <strong>swarm robotics</strong>, integrating swarm intelligence techniques for the autonomous coordination of drones.
             </p>
@@ -48,7 +52,7 @@
             
             <div class="job">
                 <h3>Research Fellow at the University of Pisa</h3>
-                <span>October 1, 2024 – Present</span>
+                <span>October 2024 – Present</span>
                 <p>
                     Currently engaged in the <strong>4DDS (4D Drone Swarms)</strong> project, developing autonomous vehicles and drone swarms in four dimensions. Utilizing advanced technologies such as Artificial Intelligence, swarm robotics, and digital twin to enhance the autonomy and operational efficiency of drones.
                 </p>
@@ -147,6 +151,15 @@
         easing: 'ease-in-out', // Easing type
         once: true // Whether animation should happen only once
       });
+    </script>
+    <!-- JavaScript for Hamburger Menu -->
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+        });
     </script>
 </body>
 </html>
