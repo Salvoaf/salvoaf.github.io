@@ -1,12 +1,12 @@
-/* Import Fonts */
+/* Importazione dei Font */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
-    background-color: #ECF0F1; /* Light Gray Background */
-    color: #2C3E50; /* Dark Blue-Gray Text */
-    overflow-x: hidden; /* Prevents horizontal overflow */
+    background-color: #ECF0F1; /* Sfondo Grigio Chiaro */
+    color: #2C3E50; /* Testo Blu-Grigio Scuro */
+    overflow-x: hidden; /* Previene lo scroll orizzontale */
 }
 
 /* Global box-sizing */
@@ -16,12 +16,12 @@ body {
 
 /* Header */
 header {
-    background-color: #2C3E50; /* Dark Blue-Gray Header */
-    color: #FFFFFF; /* White Text */
+    background-color: #2C3E50; /* Header Blu-Grigio Scuro */
+    color: #FFFFFF; /* Testo Bianco */
     padding: 2rem 0;
     text-align: center;
     position: relative;
-    overflow: hidden; /* Hide overflow for decorative elements */
+    overflow: hidden; /* Nasconde elementi decorativi fuori dal viewport */
 }
 
 header::before {
@@ -31,10 +31,10 @@ header::before {
     left: 5%;
     width: 100px;
     height: 100px;
-    background-image: url('images/neuron.jpg'); /* Path to your neuron.jpg */
+    background-image: url('images/neuron.jpg'); /* Percorso della neuron.jpg */
     background-size: contain;
     background-repeat: no-repeat;
-    opacity: 0.3; /* Subtle transparency */
+    opacity: 0.3; /* Trasparenza sottile */
     transform: rotate(45deg);
 }
 
@@ -45,7 +45,7 @@ header::after {
     right: 5%;
     width: 150px;
     height: 150px;
-    background-image: url('images/neuron.jpg'); /* Path to your neuron.jpg */
+    background-image: url('images/neuron.jpg'); /* Percorso della neuron.jpg */
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.2;
@@ -63,7 +63,7 @@ header::after {
 }
 
 h1 {
-    font-family: 'Roboto', sans-serif; /* Clean Font for the Name */
+    font-family: 'Roboto', sans-serif; /* Font Pulito per il Nome */
     font-size: 2.5rem;
     margin: 0.5rem 0;
 }
@@ -76,7 +76,7 @@ nav.nav {
     margin-top: 1rem;
 }
 
-/* Navigation Links - Desktop */
+/* Navigazione Desktop */
 .nav-links {
     list-style: none;
     padding: 0;
@@ -101,9 +101,9 @@ nav.nav {
     color: #3498DB;
 }
 
-/* Hamburger Menu - Hidden by Default */
+/* Pulsante Hamburger Menu - Nascondi per Desktop */
 .nav-toggle {
-    display: none;
+    display: none; /* Nascondi su Desktop */
     background: none;
     border: none;
     color: #FFFFFF;
@@ -114,21 +114,21 @@ nav.nav {
     right: 1.5rem;
 }
 
-/* Sidebar Navigation - Mobile */
+/* Sidebar Navigazione Mobile */
 .sidebar {
     position: fixed;
     top: 0;
-    left: -250px; /* Hidden by default */
+    left: -250px; /* Nascondi di default */
     width: 250px;
     height: 100%;
     background-color: #2C3E50;
-    padding-top: 60px; /* Space for close button */
+    padding-top: 60px; /* Spazio per il pulsante di chiusura */
     transition: left 0.3s ease;
-    z-index: 1000; /* Above other elements */
+    z-index: 1000; /* Sopra altri elementi */
 }
 
 .sidebar.active {
-    left: 0; /* Slide in */
+    left: 0; /* Mostra la sidebar */
 }
 
 .close-btn {
@@ -164,7 +164,26 @@ nav.nav {
     color: #3498DB;
 }
 
-/* Main Content */
+/* Overlay per la Sidebar */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 999; /* Sotto la sidebar */
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Contenuto Principale */
 main {
     padding: 2rem;
     max-width: 900px;
@@ -172,7 +191,7 @@ main {
     background-color: #FFFFFF;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin-top: -80px; /* Lift content above the header */
+    margin-top: -80px; /* Solleva il contenuto sopra l'header */
     position: relative;
     z-index: 1;
 }
@@ -182,7 +201,7 @@ section {
 }
 
 h2 {
-    color: #3498DB; /* Blue for Section Titles */
+    color: #3498DB; /* Blu per i Titoli delle Sezioni */
     border-bottom: 2px solid #3498DB;
     padding-bottom: 0.5rem;
     font-family: 'Roboto', sans-serif;
@@ -191,15 +210,15 @@ h2 {
 .job, .education-item, .current-research {
     margin-bottom: 1.5rem;
     padding: 1rem;
-    background-color: #F8F9FA; /* Very Light Gray for Sections */
-    border-left: 5px solid #3498DB; /* Blue Borders */
+    background-color: #F8F9FA; /* Grigio Molto Chiaro per le Sezioni */
+    border-left: 5px solid #3498DB; /* Bordo Blu */
     border-radius: 5px;
     position: relative;
 }
 
 .current-research {
-    background-color: #F0F4F7; /* Slightly Different Light Gray */
-    border-left: 5px solid #2980B9; /* Darker Blue for Emphasis */
+    background-color: #F0F4F7; /* Grigio Leggermente Diverso */
+    border-left: 5px solid #2980B9; /* Blu più Scuro per Enfasi */
 }
 
 .current-research::before {
@@ -209,7 +228,7 @@ h2 {
     left: -50px;
     width: 80px;
     height: 80px;
-    background-image: url('images/neuron.jpg'); /* Path to your neuron.jpg */
+    background-image: url('images/neuron.jpg'); /* Percorso della neuron.jpg */
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.1;
@@ -222,7 +241,7 @@ h2 {
     right: -50px;
     width: 100px;
     height: 100px;
-    background-image: url('images/neuron.jpg'); /* Path to your neuron.jpg */
+    background-image: url('images/neuron.jpg'); /* Percorso della neuron.jpg */
     background-size: contain;
     background-repeat: no-repeat;
     opacity: 0.1;
@@ -247,18 +266,18 @@ h2 {
 h3 {
     margin-bottom: 0.2rem;
     font-family: 'Roboto', sans-serif;
-    color: #2C3E50; /* Dark Blue-Gray for Job Titles */
+    color: #2C3E50; /* Blu-Grigio Scuro per i Titoli delle Esperienze */
 }
 
 span {
     display: block;
     font-style: italic;
-    color: #7F8C8D; /* Gray for Dates */
+    color: #7F8C8D; /* Grigio per le Date */
     margin-bottom: 0.5rem;
 }
 
 .education-item h3, .job h3, .current-research h3 {
-    color: #3498DB; /* Blue for Subtitles */
+    color: #3498DB; /* Blu per i Sottotitoli */
 }
 
 ul {
@@ -266,7 +285,7 @@ ul {
     margin-left: 2rem;
 }
 
-/* Contact Section */
+/* Sezione Contatti */
 .contact {
     padding: 2rem;
     background-color: #F8F9FA;
@@ -322,7 +341,7 @@ ul {
 
 /* Footer */
 footer {
-    background-color: #2C3E50; /* Dark Blue-Gray Footer */
+    background-color: #2C3E50; /* Footer Blu-Grigio Scuro */
     color: #FFFFFF;
     text-align: center;
     padding: 2rem 1rem;
@@ -353,7 +372,7 @@ footer {
 }
 
 .footer-contact a.download-cv .footer-icon {
-    width: 32px; /* Slightly larger icons */
+    width: 32px; /* Icone leggermente più grandi */
     height: 32px;
     margin-right: 0.5rem;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -367,7 +386,7 @@ footer {
 }
 
 .footer-contact .footer-icon {
-    width: 32px; /* Slightly larger icons */
+    width: 32px; /* Icone leggermente più grandi */
     height: 32px;
     margin-right: 0.5rem;
     transition: transform 0.3s ease, opacity 0.3s ease;
@@ -385,7 +404,7 @@ footer {
 
 .footer-contact p:hover .footer-icon,
 .footer-contact a.download-cv:hover .footer-icon {
-    transform: scale(1.1); /* Slightly enlarge on hover */
+    transform: scale(1.1); /* Ingrandisce leggermente al passaggio del mouse */
     opacity: 0.8;
 }
 
@@ -394,86 +413,34 @@ footer p {
     font-size: 0.9rem;
 }
 
-/* Sidebar Overlay */
-.sidebar.active {
-    left: 0; /* Show sidebar */
-}
-
-.sidebar {
-    position: fixed;
-    top: 0;
-    left: -250px; /* Hidden by default */
-    width: 250px;
-    height: 100%;
-    background-color: #2C3E50;
-    padding-top: 60px; /* Space for close button */
-    transition: left 0.3s ease;
-    z-index: 1000; /* Above other elements */
-}
-
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 2rem;
-    background: none;
-    border: none;
-    color: #FFFFFF;
-    cursor: pointer;
-}
-
-.sidebar-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar-links li {
-    margin: 1.5rem 0;
-    text-align: center;
-}
-
-.sidebar-links li a {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
-}
-
-.sidebar-links li a:hover {
-    color: #3498DB;
-}
-
-/* Responsive Design */
+/* Design Responsivo */
 @media (max-width: 768px) {
-    /* Show Hamburger Menu */
+    /* Mostra Pulsante Hamburger Menu */
     .nav-toggle {
-        display: block;
+        display: block; /* Visibile solo su Mobile */
     }
 
-    /* Hide Navigation Links on Mobile */
+    /* Nascondi Navigazione Desktop su Mobile */
     .nav-links {
-        display: none;
+        display: none; /* Nascondi su Mobile */
     }
 
-    /* Sidebar Active */
-    .sidebar.active {
-        left: 0;
+    /* Stili per la Sidebar */
+    .sidebar {
+        width: 200px; /* Larghezza leggermente ridotta su Mobile */
     }
 
-    /* Adjust Profile Picture */
+    .sidebar-links li {
+        margin: 1rem 0;
+    }
+
+    /* Ridimensiona Foto Profilo su Mobile */
     .profile-pic {
         width: 100px;
         height: 100px;
     }
 
-    /* Adjust Main Padding */
-    main {
-        padding: 1rem;
-        margin-top: -50px;
-    }
-
-    /* Adjust Headings */
+    /* Ridimensiona Titoli su Mobile */
     h1 {
         font-size: 2rem;
     }
@@ -482,18 +449,14 @@ footer p {
         font-size: 1.8rem;
     }
 
-    /* Adjust Section Icons */
-    .current-research {
-        padding-left: 20px;
-    }
-
+    /* Ridimensiona Icone delle Sezioni su Mobile */
     .section-icon {
         width: 20px;
         height: 20px;
         margin-right: 5px;
     }
 
-    /* Adjust Footer Icons */
+    /* Ridimensiona Icone del Footer su Mobile */
     .footer-contact p,
     .footer-contact a.download-cv {
         font-size: 1rem;
@@ -505,7 +468,7 @@ footer p {
         margin-right: 0.4rem;
     }
 
-    /* Adjust Contact Form Inputs */
+    /* Ridimensiona Elementi del Modulo di Contatto su Mobile */
     .contact {
         padding: 1.5rem;
     }
@@ -519,16 +482,18 @@ footer p {
         font-size: 0.9rem;
     }
 
-    /* Sidebar Styles */
-    .sidebar {
-        width: 200px;
+    /* Aggiungi Efficacia alla Sidebar */
+    .sidebar.active {
+        left: 0; /* Mostra la sidebar */
     }
 
-    .sidebar-links li {
-        margin: 1rem 0;
+    /* Rendi l'Overlay Visibile Quando Attivo */
+    .overlay.active {
+        opacity: 1;
+        visibility: visible;
     }
 
-    /* Smooth Scrolling */
+    /* Aggiungi Scrolling Fluido */
     html {
         scroll-behavior: smooth;
     }
