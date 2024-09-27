@@ -17,11 +17,11 @@
             <img src="images/profile.png" alt="Profile picture of Salvatore Arancio Febbo" class="profile-pic" loading="lazy">
             <h1>Salvatore Arancio Febbo</h1>
             <p>Based in Pisa</p>
-            <!-- Hamburger Menu Button (Visible on Mobile Only) -->
+            <!-- Hamburger Menu Button -->
             <button class="nav-toggle" aria-label="Open navigation menu">
                 &#9776;
             </button>
-            <!-- Desktop Navigation Links -->
+            <!-- Navigation Links -->
             <nav class="nav">
                 <ul class="nav-links">
                     <li><a href="#current-research">Research</a></li>
@@ -43,9 +43,6 @@
             <li><a href="#contact" class="sidebar-link">Contact</a></li>
         </ul>
     </div>
-
-    <!-- Sidebar Overlay -->
-    <div class="overlay" id="overlay"></div>
 
     <main>
         <!-- Current Research Activities Section -->
@@ -139,7 +136,7 @@
 
     <footer>
         <div class="footer-contact">
-            <!-- Download CV Link (Visible on All Devices) -->
+            <!-- Download CV Link -->
             <a href="documents/cv.pdf" download class="download-cv">
                 <img src="https://cdn2.iconfinder.com/data/icons/business-804/24/resume-portfolie-cv-profile-512.png" alt="CV Icon" class="footer-icon">
                 Download CV
@@ -177,41 +174,30 @@
         const navToggle = document.querySelector('.nav-toggle');
         const sidebar = document.getElementById('sidebar');
         const closeBtn = document.getElementById('close-btn');
-        const overlay = document.getElementById('overlay');
         const sidebarLinks = document.querySelectorAll('.sidebar-link');
 
-        // Open Sidebar and Show Overlay
+        // Open Sidebar
         navToggle.addEventListener('click', () => {
             sidebar.classList.add('active');
-            overlay.classList.add('active');
-            navToggle.setAttribute('aria-expanded', 'true');
-            sidebar.setAttribute('aria-hidden', 'false');
         });
 
-        // Close Sidebar and Hide Overlay
+        // Close Sidebar
         closeBtn.addEventListener('click', () => {
             sidebar.classList.remove('active');
-            overlay.classList.remove('active');
-            navToggle.setAttribute('aria-expanded', 'false');
-            sidebar.setAttribute('aria-hidden', 'true');
         });
 
         // Close Sidebar When a Link is Clicked
         sidebarLinks.forEach(link => {
             link.addEventListener('click', () => {
                 sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-                navToggle.setAttribute('aria-expanded', 'false');
-                sidebar.setAttribute('aria-hidden', 'true');
             });
         });
 
-        // Close Sidebar When Clicking on Overlay
-        overlay.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-            overlay.classList.remove('active');
-            navToggle.setAttribute('aria-expanded', 'false');
-            sidebar.setAttribute('aria-hidden', 'true');
+        // Close Sidebar When Clicking Outside
+        window.addEventListener('click', (e) => {
+            if (e.target === sidebar) {
+                sidebar.classList.remove('active');
+            }
         });
     </script>
 </body>
