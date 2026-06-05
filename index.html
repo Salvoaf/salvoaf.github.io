@@ -1,252 +1,743 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <!-- Meta Tag for Responsiveness -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0">
-    <title>Salvatore Arancio Febbo - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <!-- AOS (Animate On Scroll) CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salvatore Arancio Febbo — Automazione AI per PMI italiane</title>
+<meta name="description" content="Full-stack developer + AI specialist. Automatizzo processi per cooperative agricole, sanità, compliance e finanza. Dall'idea al deploy in 2-4 settimane.">
+<meta name="theme-color" content="#FAFAF8">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Automazione AI per PMI italiane — Salvatore Arancio Febbo">
+<meta property="og:description" content="Trasformo processi manuali in software che lavora per te. Dall'idea al deploy in 2-4 settimane.">
+<meta property="og:image" content="images/profile.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ===================== TOKENS ===================== */
+:root{
+  --creme:#FAFAF8;
+  --creme-2:#F9F8F5;
+  --creme-3:#FFFBF5;
+  --card:#FFFFFF;
+  --ink:#1A1A1A;
+  --body:#444444;
+  --muted:#666666;
+  --muted-2:#8a8a86;
+  --green:#3B6D11;
+  --green-d:#2f5a0d;
+  --green-soft:rgba(59,109,17,.08);
+  --amber:#BA7517;
+  --lime:#BFFF00;
+  --border:#E0E0E0;
+  --border-soft:#ECEAE4;
+  --shadow:0 2px 8px rgba(0,0,0,.08);
+  --shadow-lg:0 14px 36px -10px rgba(0,0,0,.16);
+  --r:12px;
+  --r-lg:18px;
+  --maxw:1200px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:78px;background:var(--creme);-webkit-text-size-adjust:100%}
+body{
+  margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  background:transparent;color:var(--body);line-height:1.6;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+h1,h2,h3{line-height:1.12;margin:0;letter-spacing:-.02em;color:var(--ink)}
+section{scroll-margin-top:78px;position:relative}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;width:100%}
+
+/* particles canvas sits above the creme page background, below content */
+#particles{position:fixed;inset:0;z-index:-1;pointer-events:none}
+
+/* ===================== BUTTONS ===================== */
+.btn{
+  display:inline-flex;align-items:center;gap:.55rem;justify-content:center;
+  font-weight:700;font-size:1rem;border-radius:var(--r);padding:.92rem 1.6rem;
+  cursor:pointer;border:1px solid transparent;
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease,color .25s ease,border-color .25s ease;
+  white-space:nowrap;
+}
+.btn-primary{background:var(--green);color:#fff;box-shadow:0 6px 18px -6px rgba(59,109,17,.45)}
+.btn-primary:hover{background:var(--green-d);transform:translateY(-2px);box-shadow:0 12px 26px -8px rgba(59,109,17,.55)}
+.btn-ghost{background:transparent;color:var(--green);border-color:var(--green)}
+.btn-ghost:hover{background:var(--green-soft);transform:translateY(-2px)}
+.btn-amber{background:var(--amber);color:#fff}
+.btn-amber:hover{transform:translateY(-2px);box-shadow:0 12px 26px -10px rgba(186,117,23,.5)}
+
+/* ===================== NAVBAR ===================== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .3s ease,border-color .3s ease,box-shadow .3s ease;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(250,250,248,.85);backdrop-filter:blur(14px);border-bottom-color:var(--border-soft);box-shadow:0 1px 0 rgba(0,0,0,.02)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:.6rem;font-weight:800;font-size:1.05rem;letter-spacing:-.02em;color:var(--ink)}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px var(--green-soft)}
+.nav-links{display:flex;align-items:center;gap:2rem}
+.nav-links a{color:var(--muted);font-weight:600;font-size:.95rem;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:var(--ink)}
+.nav-cta{padding:.58rem 1.1rem;font-size:.9rem;border-radius:10px}
+.nav-toggle{display:none;background:none;border:0;color:var(--ink);cursor:pointer;padding:.4rem}
+.nav-toggle svg{width:26px;height:26px}
+
+.mobile-menu{position:fixed;inset:0 0 0 auto;width:min(82vw,320px);background:var(--creme-3);z-index:120;transform:translateX(100%);transition:transform .32s cubic-bezier(.4,0,.2,1);padding:5.5rem 1.6rem 2rem;border-left:1px solid var(--border);display:flex;flex-direction:column;gap:.4rem;box-shadow:-20px 0 50px -20px rgba(0,0,0,.2)}
+.mobile-menu.open{transform:translateX(0)}
+.mobile-menu a{padding:.95rem .6rem;font-size:1.15rem;font-weight:600;color:var(--ink);border-radius:10px;transition:background .2s}
+.mobile-menu a:hover{background:var(--creme-2)}
+.mobile-menu .btn{margin-top:1rem;color:#fff}
+.menu-close{position:absolute;top:1.4rem;right:1.4rem;background:none;border:0;color:var(--ink);cursor:pointer}
+.menu-close svg{width:26px;height:26px}
+.scrim{position:fixed;inset:0;background:rgba(20,20,18,.35);opacity:0;visibility:hidden;transition:opacity .3s;z-index:110}
+.scrim.open{opacity:1;visibility:visible}
+
+/* ===================== HERO ===================== */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:8rem 0 4rem;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;z-index:-2;
+  background:radial-gradient(900px 520px at 15% -5%,rgba(59,109,17,.07),transparent 60%),
+             radial-gradient(820px 540px at 100% 10%,rgba(186,117,23,.05),transparent 55%)}
+.hero-inner{max-width:880px}
+.eyebrow{display:inline-flex;align-items:center;gap:.55rem;background:var(--green-soft);border:1px solid rgba(59,109,17,.22);color:var(--green);font-weight:600;font-size:.82rem;padding:.45rem .9rem;border-radius:100px;margin-bottom:1.8rem}
+.eyebrow .pulse{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero h1{font-size:clamp(2.6rem,7vw,5rem);font-weight:900;letter-spacing:-.035em;color:var(--ink)}
+.hero h1 .hl{background:linear-gradient(100deg,var(--green),var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.sub{font-size:clamp(1.15rem,2.4vw,1.55rem);color:var(--muted);max-width:620px;margin:1.6rem 0 2.4rem;font-weight:500}
+.hero p.sub strong{color:var(--ink);font-weight:700}
+.hero-cta{display:flex;flex-wrap:wrap;gap:1rem}
+.hero-stack{display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;margin-top:3rem;color:var(--muted-2);font-size:.85rem;font-weight:600;align-items:center}
+.hero-stack span{display:inline-flex;align-items:center;gap:.45rem}
+.hero-stack span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green)}
+
+/* ===================== SECTION HEADINGS ===================== */
+.sec{padding:6rem 0}
+.sec-tag{color:var(--amber);font-weight:700;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:1rem}
+.sec h2{font-size:clamp(2rem,4.5vw,3rem);font-weight:800;color:var(--ink)}
+.sec-lead{color:var(--muted);font-size:1.12rem;max-width:640px;margin:1.1rem 0 0}
+
+/* ===================== ABOUT ===================== */
+.about-grid{display:grid;grid-template-columns:300px 1fr;gap:3.5rem;align-items:center;margin-top:1rem}
+.about-photo{position:relative}
+.about-photo img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--r-lg);border:1px solid var(--border);box-shadow:var(--shadow-lg)}
+.about-photo::before{content:"";position:absolute;inset:-12px;border-radius:24px;background:linear-gradient(135deg,var(--green),var(--amber));opacity:.16;filter:blur(24px);z-index:-1}
+.about-bio{font-size:1.3rem;color:var(--body);font-weight:500;max-width:560px;line-height:1.5}
+.about-bio strong{color:var(--ink);font-weight:700}
+.about-bio .nb{color:var(--green);font-weight:700}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:2.2rem}
+.stat{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem 1.3rem;box-shadow:var(--shadow)}
+.stat .num{font-size:2.3rem;font-weight:900;letter-spacing:-.03em;background:linear-gradient(120deg,var(--green),var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.stat .lbl{color:var(--muted);font-size:.9rem;margin-top:.5rem;font-weight:500}
+.stack-row{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:2.2rem}
+.chip{background:var(--card);border:1px solid var(--border);color:var(--body);font-weight:600;font-size:.88rem;padding:.5rem .95rem;border-radius:100px;box-shadow:var(--shadow)}
+
+/* ===================== PROJECTS ===================== */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:1.4rem;margin-top:3rem}
+.card{position:relative;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.8rem 1.7rem;overflow:hidden;box-shadow:var(--shadow);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;display:flex;flex-direction:column}
+.card::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;background:var(--accent,var(--green))}
+.card:hover{transform:translateY(-6px);border-color:color-mix(in srgb,var(--accent,var(--green)) 45%,var(--border));box-shadow:var(--shadow-lg)}
+.card-top{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-bottom:1.1rem}
+.card-emoji{width:52px;height:52px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent,var(--green)) 10%,#fff);border:1px solid color-mix(in srgb,var(--accent,var(--green)) 22%,var(--border));border-radius:13px;color:var(--accent,var(--green))}
+.card-emoji svg{width:25px;height:25px}
+.badge{font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:.32rem .7rem;border-radius:100px;border:1px solid color-mix(in srgb,var(--accent,var(--green)) 40%,var(--border));color:var(--accent,var(--green));background:color-mix(in srgb,var(--accent,var(--green)) 9%,#fff)}
+.card h3{font-size:1.4rem;font-weight:800;margin-bottom:.2rem;color:var(--ink)}
+.card .meta{display:block;margin:1rem 0 .25rem;font-size:.71rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--accent,var(--green))}
+.card .meta-txt{color:var(--body);font-size:.97rem;margin:0}
+.card .tech{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.3rem 0 0}
+.card .tech span{font-size:.78rem;font-weight:600;color:var(--muted);background:var(--creme-2);border:1px solid var(--border-soft);padding:.28rem .6rem;border-radius:7px}
+.card .card-link{margin-top:1.4rem;display:inline-flex;align-items:center;gap:.4rem;font-weight:700;font-size:.92rem;color:var(--accent,var(--green));align-self:flex-start;transition:gap .2s}
+.card .card-link:hover{gap:.65rem}
+.card .card-link svg{width:15px;height:15px}
+.card .spacer{flex:1}
+
+/* ===================== RESEARCH ===================== */
+.paper{display:grid;grid-template-columns:1.65fr 1fr;margin-top:3rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow)}
+.paper-body{padding:2.4rem}
+.paper-kicker{display:inline-block;color:var(--amber);font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem}
+.paper-body h3{font-size:1.5rem;font-weight:800;line-height:1.22;color:var(--ink)}
+.paper-authors{color:var(--muted);font-size:.94rem;margin:.7rem 0 1.2rem}
+.paper-authors strong{color:var(--ink)}
+.paper-abstract{color:var(--body);font-size:1rem;margin:0}
+.paper-abstract strong{color:var(--ink)}
+.paper-tags{display:flex;flex-wrap:wrap;gap:.45rem;margin:1.4rem 0 1.6rem}
+.paper-tags span{font-size:.78rem;font-weight:600;color:var(--muted);background:var(--creme-2);border:1px solid var(--border-soft);padding:.3rem .7rem;border-radius:7px}
+.paper-body .card-link{display:inline-flex;align-items:center;gap:.4rem;font-weight:700;font-size:.93rem;color:var(--green);transition:gap .2s}
+.paper-body .card-link:hover{gap:.65rem}
+.paper-body .card-link svg{width:15px;height:15px}
+.paper-stats{background:linear-gradient(165deg,rgba(59,109,17,.1),rgba(186,117,23,.06));border-left:1px solid var(--border);padding:2.4rem;display:flex;flex-direction:column;justify-content:center;gap:1.7rem}
+.paper-stats b{display:block;font-size:2.5rem;font-weight:900;letter-spacing:-.03em;line-height:1;background:linear-gradient(120deg,var(--green),var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+.paper-stats span{color:var(--muted);font-size:.9rem;display:block;margin-top:.35rem;max-width:210px}
+
+.acad-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem 3.5rem;margin-top:3.5rem}
+.acad-col h4{font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);font-weight:700;margin:0 0 1.7rem;display:flex;align-items:center;gap:.8rem}
+.acad-col h4::after{content:"";flex:1;height:1px;background:var(--border)}
+.tl{list-style:none;margin:0;padding:0}
+.tl-item{position:relative;padding:0 0 1.7rem 1.7rem;border-left:2px solid var(--border)}
+.tl-item:last-child{padding-bottom:2px}
+.tl-item::before{content:"";position:absolute;left:-7px;top:3px;width:12px;height:12px;border-radius:50%;background:var(--green);border:3px solid var(--creme)}
+.tl-item.current::before{background:var(--amber);box-shadow:0 0 0 4px rgba(186,117,23,.15)}
+.tl-item .when{color:var(--muted-2);font-size:.8rem;font-weight:700;letter-spacing:.01em}
+.tl-item .what{font-size:1.06rem;font-weight:700;margin:.2rem 0 .1rem;color:var(--ink)}
+.tl-item .where{color:var(--amber);font-size:.9rem;font-weight:600}
+.tl-item .desc{color:var(--muted);font-size:.91rem;margin:.45rem 0 0}
+
+/* ===================== SERVICES ===================== */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem}
+.svc{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:2.2rem 1.9rem;display:flex;flex-direction:column;box-shadow:var(--shadow);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.svc:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.svc.featured{border-color:var(--green);background:linear-gradient(180deg,var(--green-soft),var(--card))}
+.svc-flag{display:inline-block;align-self:flex-start;background:var(--lime);color:#1a1a1a;font-weight:800;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;padding:.32rem .72rem;border-radius:100px;margin-bottom:1.1rem}
+.svc-ico{width:54px;height:54px;display:grid;place-items:center;background:var(--green-soft);border:1px solid rgba(59,109,17,.16);border-radius:13px;margin-bottom:1.3rem;color:var(--green)}
+.svc-ico svg{width:26px;height:26px}
+.svc h3{font-size:1.4rem;font-weight:800;color:var(--ink)}
+.svc .tagline{color:var(--muted);margin:.6rem 0 1.4rem;font-size:1rem}
+.svc ul{list-style:none;padding:0;margin:0 0 1.6rem;display:flex;flex-direction:column;gap:.7rem}
+.svc li{display:flex;gap:.6rem;align-items:flex-start;color:var(--body);font-size:.96rem}
+.svc li svg{width:18px;height:18px;flex-shrink:0;margin-top:3px;color:var(--green)}
+.svc .price{margin-top:auto;font-size:1rem;font-weight:500;color:var(--muted)}
+.svc .price b{display:block;font-size:1.9rem;font-weight:900;color:var(--ink);letter-spacing:-.02em;line-height:1.1;margin-top:.1rem}
+.svc .price small{display:block;font-size:.85rem;color:var(--muted);font-weight:600;margin-top:.45rem}
+
+/* ===================== FLOW (process) ===================== */
+.flow{position:relative;margin-top:3.8rem}
+.flow-line{position:absolute;top:26px;left:12.5%;right:12.5%;height:3px;background:var(--border);border-radius:3px;overflow:hidden;z-index:0}
+.flow-progress{position:absolute;inset:0;width:0;background:linear-gradient(90deg,var(--green),var(--amber));transition:width 3s cubic-bezier(.45,0,.2,1)}
+.flow.in .flow-progress{width:100%}
+.flow-steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:1.6rem;z-index:1}
+.flow-step{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.flow.in .flow-step{opacity:1;transform:none}
+.flow.in .flow-step:nth-child(2){transition-delay:.6s}
+.flow.in .flow-step:nth-child(3){transition-delay:1.2s}
+.flow.in .flow-step:nth-child(4){transition-delay:1.8s}
+.flow-dot{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:var(--card);border:2px solid var(--green);color:var(--green);font-weight:800;font-size:1.02rem;box-shadow:0 0 0 7px var(--creme);margin-bottom:1.3rem}
+.flow-time{display:inline-block;font-size:.72rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--amber);background:rgba(186,117,23,.1);border:1px solid rgba(186,117,23,.2);padding:.28rem .7rem;border-radius:100px;margin-bottom:.8rem}
+.flow-card h3{font-size:1.2rem;font-weight:800;margin-bottom:.45rem;color:var(--ink)}
+.flow-card p{color:var(--muted);font-size:.93rem;margin:0;max-width:240px}
+
+/* ===================== CONTACT ===================== */
+.contact{border-top:1px solid var(--border-soft)}
+.contact-head{text-align:center;max-width:600px;margin:0 auto}
+.contact-head .sec-lead{margin-left:auto;margin-right:auto}
+.contact-opts{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin:3rem auto 0;max-width:880px}
+.opt{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.6rem 1.3rem;text-align:center;box-shadow:var(--shadow);transition:transform .22s ease,border-color .22s ease,box-shadow .22s ease}
+.opt:hover{transform:translateY(-4px);border-color:var(--green);box-shadow:var(--shadow-lg)}
+.opt .oico{display:grid;place-items:center;width:46px;height:46px;margin:0 auto .8rem;color:var(--green)}
+.opt .oico svg{width:24px;height:24px}
+.opt b{display:block;font-size:1.02rem;color:var(--ink)}
+.opt span{color:var(--muted);font-size:.88rem}
+.contact-form{max-width:620px;margin:3rem auto 0;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:2.2rem;box-shadow:var(--shadow)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.1rem}
+.field label{font-weight:600;font-size:.9rem;color:var(--ink)}
+.field input,.field textarea{background:var(--creme);border:1px solid var(--border);border-radius:10px;padding:.85rem 1rem;color:var(--ink);font-family:inherit;font-size:1rem;transition:border-color .2s,box-shadow .2s;width:100%}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft)}
+.field textarea{resize:vertical;min-height:120px}
+.contact-form .btn{width:100%;margin-top:.4rem}
+.form-note{text-align:center;color:var(--muted-2);font-size:.82rem;margin-top:1rem}
+.form-msg{display:none;text-align:center;padding:1rem;border-radius:10px;margin-top:1rem;font-weight:600}
+.form-msg.ok{display:block;background:var(--green-soft);border:1px solid var(--green);color:var(--green-d)}
+.form-msg.err{display:block;background:rgba(186,40,40,.08);border:1px solid #c0504d;color:#a23a37}
+
+/* ===================== FOOTER ===================== */
+footer{background:var(--creme-2);border-top:1px solid var(--border);padding:3.5rem 0 2.5rem}
+.foot-grid{display:flex;justify-content:space-between;align-items:center;gap:2rem;flex-wrap:wrap}
+.foot-brand{font-weight:800;font-size:1.05rem;display:flex;align-items:center;gap:.6rem;color:var(--ink)}
+.foot-brand .dot{width:10px;height:10px;border-radius:50%;background:var(--green)}
+.foot-tag{color:var(--muted-2);font-size:.9rem;margin-top:.4rem}
+.socials{display:flex;gap:.7rem;flex-wrap:wrap}
+.socials a{width:42px;height:42px;display:grid;place-items:center;background:var(--card);border:1px solid var(--border);border-radius:10px;color:var(--muted);transition:color .2s,border-color .2s,transform .2s}
+.socials a:hover{color:var(--green);border-color:var(--green);transform:translateY(-2px)}
+.socials a svg{width:19px;height:19px}
+.foot-bottom{margin-top:2.5rem;padding-top:1.8rem;border-top:1px solid var(--border);color:var(--muted-2);font-size:.85rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.foot-bottom a{color:var(--muted);font-weight:600}
+.foot-bottom a:hover{color:var(--green)}
+
+/* ===================== REVEAL ===================== */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width:920px){
+  .about-grid{grid-template-columns:1fr;gap:2rem}
+  .about-photo{max-width:240px}
+  .svc-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+  .svc.featured{order:-1}
+  .paper{grid-template-columns:1fr}
+  .paper-stats{flex-direction:row;flex-wrap:wrap;gap:1.6rem 2.4rem;border-left:0;border-top:1px solid var(--border)}
+  .acad-grid{grid-template-columns:1fr;gap:2.8rem}
+}
+@media (max-width:760px){
+  .nav-links{display:none}
+  .nav .nav-cta{display:none}
+  .nav-toggle{display:block}
+  .sec{padding:4.5rem 0}
+  .hero{padding:7rem 0 4rem}
+  .stats{grid-template-columns:1fr}
+  .stat{display:flex;align-items:baseline;gap:1rem}
+  .stat .lbl{margin-top:0}
+  .contact-opts{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .foot-grid{flex-direction:column;align-items:flex-start}
+}
+@media (max-width:860px){
+  .flow-line{display:none}
+  .flow-steps{grid-template-columns:1fr;gap:0;max-width:460px;margin:0 auto}
+  .flow-step{flex-direction:row;align-items:flex-start;text-align:left;gap:1.3rem;padding-bottom:2.2rem}
+  .flow-step::after{content:"";position:absolute;left:26px;top:54px;bottom:0;width:3px;background:var(--border)}
+  .flow-step:last-child::after{display:none}
+  .flow-dot{margin-bottom:0;flex-shrink:0;box-shadow:0 0 0 5px var(--creme)}
+  .flow-card p{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;scroll-behavior:auto!important}
+  .reveal{opacity:1;transform:none;transition:none}
+  .flow-step{opacity:1!important;transform:none!important;transition:none!important}
+  .flow-progress{transition:none!important}
+}
+</style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <img src="images/profile.png" alt="Profile picture of Salvatore Arancio Febbo" class="profile-pic" loading="lazy">
-            <h1>Salvatore Arancio Febbo</h1>
-            <p>Based in Pisa</p>
-            <!-- Hamburger Menu Button (Visible Only on Mobile) -->
-            <button class="nav-toggle" aria-label="Open navigation menu">
-                &#9776;
-            </button>
-            <!-- Desktop Navigation -->
-            <nav class="nav">
-                <ul class="nav-links">
-                    <li><a href="#current-research">Research</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#education">Education</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
 
-    <!-- Sidebar for Mobile Navigation -->
-    <div class="sidebar" id="sidebar">
-        <button class="close-btn" id="close-btn">&times;</button>
-        <ul class="sidebar-links">
-            <li><a href="#current-research" class="sidebar-link">Research</a></li>
-            <li><a href="#experience" class="sidebar-link">Experience</a></li>
-            <li><a href="#education" class="sidebar-link">Education</a></li>
-            <li><a href="#contact" class="sidebar-link">Contact</a></li>
-        </ul>
+<div id="particles" aria-hidden="true"></div>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span>Salvo<span style="color:var(--muted-2)">.dev</span></a>
+    <nav class="nav-links">
+      <a href="#about">Chi sono</a>
+      <a href="#projects">Ambiti</a>
+      <a href="#services">Come lavoro</a>
+      <a href="percorso.html">Percorso</a>
+      <a href="#contact">Contatti</a>
+    </nav>
+    <a href="#contact" class="btn btn-primary nav-cta">Parliamone</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Apri menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="scrim" id="scrim"></div>
+<nav class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <button class="menu-close" id="menuClose" aria-label="Chiudi menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <a href="#about">Chi sono</a>
+  <a href="#projects">Ambiti</a>
+  <a href="#services">Come lavoro</a>
+  <a href="percorso.html">Percorso</a>
+  <a href="#contact">Contatti</a>
+  <a href="#contact" class="btn btn-primary">Parliamone</a>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="wrap hero-inner">
+    <span class="eyebrow"><span class="pulse"></span>Disponibile per nuovi progetti</span>
+    <h1>Automazione <span class="hl">AI</span><br>per PMI italiane</h1>
+    <p class="sub">Riduco il lavoro manuale ripetitivo con automazioni su misura: <strong>meno errori, più tempo per ciò che conta.</strong> Dall'idea al software in produzione in poche settimane.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-primary">Vediamo se è per te
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#projects" class="btn btn-ghost">Guarda i progetti</a>
+    </div>
+    <div class="hero-stack">
+      <span>FastAPI</span><span>React</span><span>Claude API</span><span>PostgreSQL</span><span>LangGraph</span><span>Docker</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ABOUT ===================== -->
+<section class="sec" id="about">
+  <div class="wrap">
+    <span class="sec-tag reveal">Chi sono</span>
+    <h2 class="reveal">Un unico interlocutore,<br>dall'analisi al deploy.</h2>
+    <div class="about-grid">
+      <div class="about-photo reveal">
+        <img src="images/profile.png" alt="Salvatore Arancio Febbo" width="300" height="300" loading="lazy">
+      </div>
+      <div class="reveal">
+        <p class="about-bio">
+          Full-stack developer e AI specialist. Progetto e realizzo soluzioni di automazione per <strong>studi legali, hotel, cooperative agricole, sanità e finanza</strong> — dall'analisi del processo al deploy in produzione.
+          <br><br><span class="nb">Soluzioni affidabili, risultati misurabili.</span>
+        </p>
+        <div class="stats">
+          <div class="stat"><div><div class="num">8+</div><div class="lbl">Soluzioni consegnate</div></div></div>
+          <div class="stat"><div><div class="num">7+</div><div class="lbl">Settori serviti</div></div></div>
+          <div class="stat"><div><div class="num">1 sett.</div><div class="lbl">Alla prima demo</div></div></div>
+        </div>
+        <div class="stack-row">
+          <span class="chip">FastAPI</span>
+          <span class="chip">React + TypeScript</span>
+          <span class="chip">Claude / Gemini API</span>
+          <span class="chip">PostgreSQL + pgvector</span>
+          <span class="chip">LangGraph</span>
+          <span class="chip">Google Cloud</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== PROJECTS ===================== -->
+<section class="sec" id="projects">
+  <div class="wrap">
+    <span class="sec-tag reveal">Casi d'uso</span>
+    <h2 class="reveal">Ovunque ci sia un processo ripetitivo.</h2>
+    <p class="sec-lead reveal">Ho automatizzato attività in settori molto diversi tra loro. Il filo conduttore è sempre lo stesso: dove c'è lavoro manuale e ripetitivo — email, documenti, fatture, agende — l'AI può occuparsene al posto tuo, più in fretta e senza errori.</p>
+
+    <div class="proj-grid">
+
+      <!-- Agricoltura -->
+      <article class="card reveal" style="--accent:#3B6D11">
+        <div class="card-top">
+          <div class="card-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
+        </div>
+        <h3>Agricoltura &amp; cooperative</h3>
+        <span class="meta">Il contesto</span>
+        <p class="meta-txt">Fatture, contributi UE, magazzino e prima nota gestiti tra Excel e gestionali diversi che non comunicano.</p>
+        <span class="meta">Cosa automatizzo</span>
+        <p class="meta-txt">Estrazione e classificazione automatica delle fatture, rendicontazione dei contributi pronta da inviare e interrogazioni al gestionale in linguaggio naturale.</p>
+        <div class="spacer"></div>
+        <div class="tech"><span>Fatture → gestionale</span><span>Rendicontazione UE</span><span>Query in italiano</span></div>
+      </article>
+
+      <!-- Studi legali -->
+      <article class="card reveal" style="--accent:#BA7517">
+        <div class="card-top">
+          <div class="card-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></div>
+        </div>
+        <h3>Studi legali</h3>
+        <span class="meta">Il contesto</span>
+        <p class="meta-txt">Pratiche, scadenze e documenti seguiti a mano: email da smistare, atti da cui ricopiare dati, termini da non mancare.</p>
+        <span class="meta">Cosa automatizzo</span>
+        <p class="meta-txt">Smistamento delle email per pratica, estrazione dei dati dagli atti in PDF, promemoria automatici delle scadenze e archiviazione ordinata.</p>
+        <div class="spacer"></div>
+        <div class="tech"><span>Smistamento email</span><span>Estrazione da PDF</span><span>Scadenzario</span></div>
+      </article>
+
+      <!-- Hotel -->
+      <article class="card reveal" style="--accent:#2563eb">
+        <div class="card-top">
+          <div class="card-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg></div>
+        </div>
+        <h3>Hotel &amp; ospitalità</h3>
+        <span class="meta">Il contesto</span>
+        <p class="meta-txt">Prenotazioni da più canali, richieste degli ospiti e recensioni da gestire una per una, a qualsiasi ora.</p>
+        <span class="meta">Cosa automatizzo</span>
+        <p class="meta-txt">Prenotazioni dalle email direttamente nel gestionale, risposte automatiche alle domande ricorrenti e report giornalieri su occupazione e incassi.</p>
+        <div class="spacer"></div>
+        <div class="tech"><span>Email → gestionale</span><span>Risposte automatiche</span><span>Report giornalieri</span></div>
+      </article>
+
+      <!-- Sanità -->
+      <article class="card reveal" style="--accent:#0d9488">
+        <div class="card-top">
+          <div class="card-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.2 12h6.3l.5-1 2 4 1.5-3 .5 1h6.8"/></svg></div>
+        </div>
+        <h3>Sanità &amp; studi clinici</h3>
+        <span class="meta">Il contesto</span>
+        <p class="meta-txt">Agende fitte, anagrafiche pazienti e privacy GDPR da rispettare, gestite tra telefono e fogli di calcolo.</p>
+        <span class="meta">Cosa automatizzo</span>
+        <p class="meta-txt">Turni e appuntamenti ottimizzati in automatico, gestione pazienti a norma GDPR e promemoria che riducono i mancati appuntamenti.</p>
+        <div class="spacer"></div>
+        <div class="tech"><span>Agende ottimizzate</span><span>Pazienti GDPR</span><span>Promemoria</span></div>
+      </article>
+
+      <!-- Export -->
+      <article class="card reveal" style="--accent:#ea580c">
+        <div class="card-top">
+          <div class="card-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg></div>
+        </div>
+        <h3>Export &amp; dogane</h3>
+        <span class="meta">Il contesto</span>
+        <p class="meta-txt">Ogni spedizione richiede di validare codici doganali e requisiti di compliance, documento per documento.</p>
+        <span class="meta">Cosa automatizzo</span>
+        <p class="meta-txt">Estrazione dei dati dai documenti commerciali, mappatura dei codici sui requisiti UE e segnalazione dei rischi, con la fonte sempre tracciata.</p>
+        <div class="spacer"></div>
+        <div class="tech"><span>Estrazione documenti</span><span>Codici HS</span><span>Check compliance</span></div>
+      </article>
+
+      <!-- Finanza -->
+      <article class="card reveal" style="--accent:#4f46e5">
+        <div class="card-top">
+          <div class="card-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+        </div>
+        <h3>Finanza &amp; dati</h3>
+        <span class="meta">Il contesto</span>
+        <p class="meta-txt">Dati sparsi su più fonti, report compilati a mano e monitoraggi che richiedono presenza costante.</p>
+        <span class="meta">Cosa automatizzo</span>
+        <p class="meta-txt">Pipeline che raccolgono e puliscono i dati, monitoraggi con alert automatici e report generati da soli, pronti per le decisioni.</p>
+        <div class="spacer"></div>
+        <div class="tech"><span>Pipeline dati</span><span>Alert automatici</span><span>Report</span></div>
+      </article>
+
     </div>
 
-    <!-- Overlay for the Sidebar -->
-    <div class="overlay" id="overlay"></div>
+    <p class="sec-lead reveal" style="margin-top:2.4rem">Non vedi il tuo settore? Quasi ogni attività ripetitiva — email, documenti, fatture, agende — si può automatizzare. <a href="#contact" style="color:var(--green);font-weight:700">Raccontami il tuo caso →</a></p>
+  </div>
+</section>
 
-    <main>
-        <!-- Current Research Activities Section -->
-        <section class="current-research" id="current-research" data-aos="fade-up">
-            <h2>Current Activities</h2>
-            <p>
-                I am currently working as a research fellow at the University of Pisa, focusing on the <strong>4DDS (4D Drone Swarms)</strong> project. This project involves the development of autonomous vehicles and drone swarms operating in four dimensions: aerial, terrestrial, surface, and underwater. The project leverages advanced technologies such as <strong>Artificial Intelligence</strong> and <strong>swarm robotics</strong>, integrating swarm intelligence techniques for the autonomous coordination of drones.
-            </p>
-            <p>
-                Another key aspect is the use of <strong>digital twin</strong>, which allows for the simulation of drones in realistic environments, reducing costs and risks associated with experimentation. The project also includes the use of <strong>Big Data</strong> to manage and analyze the large flow of heterogeneous information collected from sensors, supporting situational awareness and enhancing the decision-making process.
-            </p>
-            <p>
-                The focus is on implementing innovative control and supervision logics, enabling drone swarms to manage complex missions such as environmental monitoring, security operations, and critical transportation, ensuring an increasingly high level of autonomy.
-            </p>
-        </section>
+<!-- ===================== SERVICES ===================== -->
+<section class="sec" id="services">
+  <div class="wrap">
+    <span class="sec-tag reveal">Come lavoriamo</span>
+    <h2 class="reveal">Dal problema al processo automatizzato.</h2>
+    <p class="sec-lead reveal">Un percorso chiaro e veloce, senza sorprese. Ecco cosa succede quando lavoriamo insieme.</p>
 
-        <!-- Professional Experiences Section -->
-        <section class="experience" id="experience" data-aos="fade-up" data-aos-delay="200">
-            <h2>Professional Experiences</h2>
-            
-            <div class="job">
-                <h3>Research Fellow at the University of Pisa</h3>
-                <span>October 2024 – Present</span>
-                <p>
-                    Currently engaged in the <strong>4DDS (4D Drone Swarms)</strong> project, developing autonomous vehicles and drone swarms in four dimensions. Utilizing advanced technologies such as Artificial Intelligence, swarm robotics, and digital twin to enhance the autonomy and operational efficiency of drones.
-                </p>
-            </div>
+    <div class="flow">
+      <div class="flow-line"><span class="flow-progress"></span></div>
+      <div class="flow-steps">
 
-            <div class="job">
-                <h3>University of Luxembourg Intern</h3>
-                <span>April 2024 – June 2024</span>
-                <p>
-                    Continued my master's thesis initiated at FlySight.
-                </p>
-            </div>
-
-            <div class="job">
-                <h3>FlySight Intern</h3>
-                <span>January 2024 – April 2024</span>
-                <p>
-                    Actively collaborated with the Research and Development team, applying the knowledge acquired during my studies in the field of artificial intelligence for my thesis. 
-                    <strong>Skills Acquired:</strong>
-                    <ul>
-                        <li>Object Detection with Event Camera</li>
-                        <li>SLAM in ROS Environment Using Event Camera</li>
-                    </ul>
-                </p>
-            </div>
-        </section>
-
-        <!-- Education and Qualifications Section -->
-        <section class="education" id="education" data-aos="fade-up" data-aos-delay="400">
-            <h2>Education and Qualifications</h2>
-            <div class="education-item">
-                <h3>University of Pisa</h3>
-                <span>Master's Degree in Artificial Intelligence and Data Engineering (2021-2024)</span>
-                <p>Specialized in machine learning, deep learning, data management, and AI applications.</p>
-            </div>
-            <div class="education-item">
-                <h3>University of Pisa</h3>
-                <span>Bachelor's Degree in Computer Engineering (2015-2021)</span>
-                <p>Focused on the fundamentals of programming and engineering principles.</p>
-            </div>
-            <div class="education-item">
-                <h3>I.I.S "Enrico Fermi"</h3>
-                <span>Business Information Systems (SIA) (2010-2015)</span>
-                <p>Specialized in business information systems, focusing on accounting, economics, law, and business management through the use of IT tools.</p>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact" id="contact" data-aos="fade-up" data-aos-delay="600">
-            <h2>Contact Me</h2>
-            <p>If you'd like to get in touch, feel free to reach out through any of the platforms below or fill out the contact form.</p>
-            
-            <!-- Contact Form -->
-            <form action="https://formspree.io/f/mwkaykvl" method="POST" class="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="_replyto" required>
-
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-contact">
-            <!-- Download CV Link (Visible on All Devices) -->
-            <a href="documents/cv.pdf" download class="footer-icon-link" aria-label="Download CV">
-                <img src="https://cdn2.iconfinder.com/data/icons/business-804/24/resume-portfolie-cv-profile-512.png" alt="Download CV" class="footer-icon">
-            </a>
-            <!-- Phone Contact -->
-            <a href="tel:+393663046611" class="footer-icon-link" aria-label="Call Phone">
-                <img src="https://cdn0.iconfinder.com/data/icons/essentials-solid-glyphs-vol-1/100/Phone-Call-Telephone-512.png" alt="Call Phone" class="footer-icon">
-            </a>
-            <!-- Email Contact -->
-            <a href="mailto:s.aranciofebbo@studenti.unipi.it" class="footer-icon-link" aria-label="Send Email">
-                <img src="https://cdn3.iconfinder.com/data/icons/streamline-icon-set-free-pack/48/Streamline-58-512.png" alt="Send Email" class="footer-icon">
-            </a>
-            <!-- GitHub Link -->
-            <a href="https://github.com/Salvoaf" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="Visit GitHub Profile">
-                <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-social-github-512.png" alt="GitHub Profile" class="footer-icon">
-            </a>
-            <!-- LinkedIn Link -->
-            <a href="https://www.linkedin.com/in/salvatore-arancio-febbo-43b61a180/" target="_blank" rel="noopener noreferrer" class="footer-icon-link" aria-label="Visit LinkedIn Profile">
-                <img src="https://cdn3.iconfinder.com/data/icons/picons-social/57/11-linkedin-512.png" alt="LinkedIn Profile" class="footer-icon">
-            </a>
+        <div class="flow-step">
+          <div class="flow-dot">01</div>
+          <div class="flow-card">
+            <span class="flow-time">Si parte da qui</span>
+            <h3>Consulenza</h3>
+            <p>Analizziamo insieme il processo che ti fa perdere tempo e capiamo cosa conviene automatizzare davvero — e cosa no.</p>
+          </div>
         </div>
-        <p>&copy; 2024 Salvatore Arancio Febbo. All rights reserved.</p>
-    </footer>
 
-    <!-- AOS (Animate On Scroll) JS -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-      AOS.init({
-        duration: 800, // Animation duration
-        easing: 'ease-in-out', // Easing type
-        once: true // Whether animation should happen only once
+        <div class="flow-step">
+          <div class="flow-dot">02</div>
+          <div class="flow-card">
+            <span class="flow-time">1 settimana</span>
+            <h3>Demo funzionante</h3>
+            <p>In pochi giorni ricevi una demo che gira sui tuoi dati reali: vedi l'automazione all'opera, non a parole.</p>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-dot">03</div>
+          <div class="flow-card">
+            <span class="flow-time">3-4 settimane</span>
+            <h3>Primo MVP</h3>
+            <p>Grazie al team che ho alle spalle, dalla demo passiamo a un MVP completo e in produzione in poche settimane.</p>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-dot">04</div>
+          <div class="flow-card">
+            <span class="flow-time">A regime</span>
+            <h3>Automazione dei processi</h3>
+            <p>Il sistema entra nei tuoi flussi quotidiani e continua a lavorare: meno operazioni manuali, ogni giorno.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2.8rem" class="reveal">
+      <a href="#contact" class="btn btn-amber">Parliamone
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CONTACT ===================== -->
+<section class="sec contact" id="contact">
+  <div class="wrap">
+    <div class="contact-head">
+      <span class="sec-tag reveal">Contatti</span>
+      <h2 class="reveal">Parliamo del tuo progetto.</h2>
+      <p class="sec-lead reveal">Raccontami il processo che ti porta via più tempo: ti dico se e come si può automatizzare, senza impegno.</p>
+    </div>
+
+    <div class="contact-opts">
+      <a class="opt reveal" href="mailto:salvoaranciofebbo@gmail.com?subject=Progetto%20di%20automazione%20AI">
+        <div class="oico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 6L22 7"/></svg></div>
+        <b>Email</b>
+        <span>salvoaranciofebbo@gmail.com</span>
+      </a>
+      <a class="opt reveal" href="https://wa.me/393663046611?text=Ciao%20Salvo,%20vorrei%20parlarti%20di%20un%20progetto" target="_blank" rel="noopener">
+        <div class="oico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M.06 24l1.68-6.13A11.86 11.86 0 010 11.9C0 5.34 5.35 0 11.92 0a11.82 11.82 0 018.41 3.49 11.74 11.74 0 013.48 8.4c0 6.56-5.35 11.9-11.92 11.9a11.95 11.95 0 01-5.7-1.45L.06 24zM6.6 20.13l.36.21a9.86 9.86 0 005.02 1.38c5.46 0 9.9-4.43 9.9-9.88a9.8 9.8 0 00-2.9-6.99 9.82 9.82 0 00-6.99-2.9c-5.46 0-9.9 4.44-9.9 9.89a9.83 9.83 0 001.51 5.25l.24.38-1 3.63 3.76-.98zm11.4-5.55c-.07-.12-.27-.2-.57-.35-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.04-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.2 5.07 4.48.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41z"/></svg></div>
+        <b>WhatsApp</b>
+        <span>Risposta in giornata</span>
+      </a>
+      <a class="opt reveal" href="https://www.linkedin.com/in/salvatore-arancio-febbo-43b61a180/" target="_blank" rel="noopener">
+        <div class="oico"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></div>
+        <b>LinkedIn</b>
+        <span>Connettiamoci</span>
+      </a>
+    </div>
+
+    <form class="contact-form reveal" id="contactForm" action="https://formspree.io/f/mwkaykvl" method="POST">
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Nome</label>
+          <input type="text" id="name" name="name" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+        </div>
+      </div>
+      <div class="field">
+        <label for="message">Di cosa hai bisogno?</label>
+        <textarea id="message" name="message" required placeholder="Es. Ricevo 50 ordini al giorno via email e li ricopio a mano nel gestionale…"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" id="submitBtn">Invia messaggio</button>
+      <div class="form-msg" id="formMsg"></div>
+      <p class="form-note">Niente spam. Rispondo personalmente entro 24h.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand"><span class="dot"></span>Salvatore Arancio Febbo</div>
+        <p class="foot-tag">Automazione AI per PMI italiane · Pisa, Italia</p>
+      </div>
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/salvatore-arancio-febbo-43b61a180/" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 110-4.14 2.07 2.07 0 010 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+        <a href="mailto:salvoaranciofebbo@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
+        </a>
+        <a href="https://wa.me/393663046611" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.06 24l1.68-6.13A11.86 11.86 0 010 11.9C0 5.34 5.35 0 11.92 0a11.82 11.82 0 018.41 3.49 11.74 11.74 0 013.48 8.4c0 6.56-5.35 11.9-11.92 11.9a11.95 11.95 0 01-5.7-1.45L.06 24zM6.6 20.13l.36.21a9.86 9.86 0 005.02 1.38c5.46 0 9.9-4.43 9.9-9.88a9.8 9.8 0 00-2.9-6.99 9.82 9.82 0 00-6.99-2.9c-5.46 0-9.9 4.44-9.9 9.89a9.83 9.83 0 001.51 5.25l.24.38-1 3.63 3.76-.98zm11.4-5.55c-.07-.12-.27-.2-.57-.35-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.04-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.02-.53-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.01-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.09 3.2 5.07 4.48.71.31 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Salvatore Arancio Febbo. Tutti i diritti riservati.</span>
+      <a href="#top">Torna su ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@tsparticles/slim@3/tsparticles.slim.bundle.min.js" defer></script>
+<script>
+window.addEventListener('DOMContentLoaded', function(){
+  "use strict";
+
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- Particles (tsparticles slim, CDN) ----
+  if(!reduceMotion && window.tsParticles){
+    window.tsParticles.load({
+      id:"particles",
+      options:{
+        fullScreen:{enable:false},
+        fpsLimit:60,
+        detectRetina:true,
+        background:{color:"transparent"},
+        particles:{
+          number:{value:80,density:{enable:true,width:1200,height:800}},
+          color:{value:"#C4C4BD"},
+          shape:{type:"circle"},
+          opacity:{value:0.6},
+          size:{value:{min:1,max:3}},
+          links:{enable:true,distance:155,color:"#CDCCC4",opacity:0.5,width:1},
+          move:{enable:true,speed:1.1,direction:"none",random:false,straight:false,outModes:{default:"out"}}
+        },
+        interactivity:{
+          events:{onHover:{enable:true,mode:"grab"},onClick:{enable:false},resize:true},
+          modes:{grab:{distance:160,links:{opacity:0.85}}}
+        },
+        smooth:true
+      }
+    }).then(function(container){
+      // make the canvas fill its fixed parent
+      var c = document.querySelector('#particles canvas');
+      if(c){ c.style.width='100%'; c.style.height='100%'; }
+    });
+  }
+
+  // ---- Navbar scroll state ----
+  var nav = document.getElementById('nav');
+  var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 20); };
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  // ---- Mobile menu ----
+  var toggle = document.getElementById('navToggle');
+  var menu = document.getElementById('mobileMenu');
+  var scrim = document.getElementById('scrim');
+  var closeBtn = document.getElementById('menuClose');
+  function openMenu(){ menu.classList.add('open'); scrim.classList.add('open'); toggle.setAttribute('aria-expanded','true'); menu.setAttribute('aria-hidden','false'); }
+  function closeMenu(){ menu.classList.remove('open'); scrim.classList.remove('open'); toggle.setAttribute('aria-expanded','false'); menu.setAttribute('aria-hidden','true'); }
+  toggle.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  scrim.addEventListener('click', closeMenu);
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+
+  // ---- Reveal on scroll ----
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && !reduceMotion){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  } else {
+    reveals.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // ---- Process flow animation ----
+  var flow = document.querySelector('.flow');
+  if(flow){
+    if('IntersectionObserver' in window){
+      var fo = new IntersectionObserver(function(es){
+        es.forEach(function(e){ if(e.isIntersecting){ flow.classList.add('in'); fo.unobserve(flow); } });
+      }, {threshold:0.25});
+      fo.observe(flow);
+    } else { flow.classList.add('in'); }
+  }
+
+  // ---- Active nav link on scroll ----
+  var sections = ['about','projects','services','contact'];
+  var navAnchors = {};
+  document.querySelectorAll('.nav-links a').forEach(function(a){
+    navAnchors[a.getAttribute('href').slice(1)] = a;
+  });
+  if('IntersectionObserver' in window){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        var a = navAnchors[en.target.id];
+        if(a && en.isIntersecting){
+          Object.keys(navAnchors).forEach(function(k){ navAnchors[k].classList.remove('active'); });
+          a.classList.add('active');
+        }
       });
-    </script>
-    <!-- JavaScript for Hamburger Menu and Sidebar -->
-    <script>
-        const navToggle = document.querySelector('.nav-toggle');
-        const sidebar = document.getElementById('sidebar');
-        const closeBtn = document.getElementById('close-btn');
-        const overlay = document.getElementById('overlay');
-        const sidebarLinks = document.querySelectorAll('.sidebar-link');
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    sections.forEach(function(id){ var s = document.getElementById(id); if(s) spy.observe(s); });
+  }
 
-        // Function to Open Sidebar and Show Overlay
-        navToggle.addEventListener('click', () => {
-            sidebar.classList.add('active');
-            overlay.classList.add('active');
-            navToggle.setAttribute('aria-expanded', 'true');
-            sidebar.setAttribute('aria-hidden', 'false');
-            // Trap focus inside the sidebar
-            closeBtn.focus();
-        });
-
-        // Function to Close Sidebar and Hide Overlay
-        closeBtn.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-            overlay.classList.remove('active');
-            navToggle.setAttribute('aria-expanded', 'false');
-            sidebar.setAttribute('aria-hidden', 'true');
-            // Return focus to the hamburger menu
-            navToggle.focus();
-        });
-
-        // Close Sidebar When a Link is Clicked
-        sidebarLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-                navToggle.setAttribute('aria-expanded', 'false');
-                sidebar.setAttribute('aria-hidden', 'true');
-            });
-        });
-
-        // Close Sidebar When Clicking on Overlay
-        overlay.addEventListener('click', () => {
-            sidebar.classList.remove('active');
-            overlay.classList.remove('active');
-            navToggle.setAttribute('aria-expanded', 'false');
-            sidebar.setAttribute('aria-hidden', 'true');
-        });
-
-        // Handle Sidebar Keyboard Navigation (Accessibility)
-        sidebar.addEventListener('keydown', (e) => {
-            if (e.key === 'Tab') {
-                const focusableElements = sidebar.querySelectorAll('a, button');
-                const firstElement = focusableElements[0];
-                const lastElement = focusableElements[focusableElements.length - 1];
-
-                if (e.shiftKey) { // Shift + Tab
-                    if (document.activeElement === firstElement) {
-                        e.preventDefault();
-                        lastElement.focus();
-                    }
-                } else { // Tab
-                    if (document.activeElement === lastElement) {
-                        e.preventDefault();
-                        firstElement.focus();
-                    }
-                }
-            }
-
-            if (e.key === 'Escape') {
-                // Close the sidebar when Escape is pressed
-                sidebar.classList.remove('active');
-                overlay.classList.remove('active');
-                navToggle.setAttribute('aria-expanded', 'false');
-                sidebar.setAttribute('aria-hidden', 'true');
-                navToggle.focus();
-            }
-        });
-    </script>
+  // ---- Contact form (AJAX to Formspree, graceful fallback) ----
+  var form = document.getElementById('contactForm');
+  var msg = document.getElementById('formMsg');
+  var btn = document.getElementById('submitBtn');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    btn.disabled = true; btn.textContent = 'Invio in corso…';
+    msg.className = 'form-msg';
+    fetch(form.action, { method:'POST', body:new FormData(form), headers:{'Accept':'application/json'} })
+    .then(function(res){
+      if(res.ok){
+        form.reset();
+        msg.className = 'form-msg ok';
+        msg.textContent = 'Messaggio inviato. Ti rispondo entro 24h.';
+      } else { throw new Error('bad response'); }
+    }).catch(function(){
+      msg.className = 'form-msg err';
+      msg.innerHTML = 'Qualcosa è andato storto. Scrivimi a <a href="mailto:salvoaranciofebbo@gmail.com" style="color:inherit;text-decoration:underline">salvoaranciofebbo@gmail.com</a>';
+    }).finally(function(){
+      btn.disabled = false; btn.textContent = 'Invia messaggio';
+    });
+  });
+});
+</script>
 </body>
 </html>
