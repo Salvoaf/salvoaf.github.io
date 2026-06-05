@@ -148,6 +148,8 @@ section{scroll-margin-top:78px;position:relative}
 .card .meta-txt{color:var(--body);font-size:.97rem;margin:0}
 .card .tech{display:flex;flex-wrap:wrap;gap:.4rem;margin:1.3rem 0 0}
 .card .tech span{font-size:.78rem;font-weight:600;color:var(--muted);background:var(--creme-2);border:1px solid var(--border-soft);padding:.28rem .6rem;border-radius:7px}
+.card .result{margin-top:1.3rem;padding-top:1.1rem;border-top:1px solid var(--border-soft);font-size:.92rem;color:var(--body);font-weight:500;line-height:1.6}
+.card .result strong{color:var(--ink);font-weight:900;font-size:1.06rem;background:linear-gradient(transparent 58%,rgba(191,255,0,.6) 0);padding:0 .14em;border-radius:2px;white-space:nowrap}
 .card .card-link{margin-top:1.4rem;display:inline-flex;align-items:center;gap:.4rem;font-weight:700;font-size:.92rem;color:var(--accent,var(--green));align-self:flex-start;transition:gap .2s}
 .card .card-link:hover{gap:.65rem}
 .card .card-link svg{width:15px;height:15px}
@@ -308,7 +310,7 @@ footer{background:var(--creme-2);border-top:1px solid var(--border);padding:3.5r
   <div class="wrap nav-inner">
     <nav class="nav-links">
       <a href="#about">Chi sono</a>
-      <a href="#projects">Ambiti</a>
+      <a href="#projects">Soluzioni</a>
       <a href="#services">Come lavoro</a>
       <a href="percorso.html">Percorso</a>
       <a href="#contact">Contatti</a>
@@ -326,7 +328,7 @@ footer{background:var(--creme-2);border-top:1px solid var(--border);padding:3.5r
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
   </button>
   <a href="#about">Chi sono</a>
-  <a href="#projects">Ambiti</a>
+  <a href="#projects">Soluzioni</a>
   <a href="#services">Come lavoro</a>
   <a href="percorso.html">Percorso</a>
   <a href="#contact">Contatti</a>
@@ -346,7 +348,7 @@ footer{background:var(--creme-2);border-top:1px solid var(--border);padding:3.5r
       <a href="#projects" class="btn btn-ghost">Guarda i progetti</a>
     </div>
     <div class="hero-stack">
-      <span>FastAPI</span><span>React</span><span>Claude API</span><span>PostgreSQL</span><span>LangGraph</span><span>Docker</span>
+      <span>Soluzioni in produzione</span><span>Privacy-first · GDPR</span><span>Integrato coi tuoi gestionali</span><span>Demo in 1 settimana</span>
     </div>
   </div>
 </section>
@@ -366,17 +368,16 @@ footer{background:var(--creme-2);border-top:1px solid var(--border);padding:3.5r
           <br><br><span class="nb">Soluzioni affidabili, risultati misurabili.</span>
         </p>
         <div class="stats">
-          <div class="stat"><div><div class="num">8+</div><div class="lbl">Soluzioni consegnate</div></div></div>
-          <div class="stat"><div><div class="num">7+</div><div class="lbl">Settori serviti</div></div></div>
+          <div class="stat"><div><div class="num">8+</div><div class="lbl">Progetti in produzione</div></div></div>
+          <div class="stat"><div><div class="num">−60%</div><div class="lbl">Tempo sui processi manuali</div></div></div>
           <div class="stat"><div><div class="num">1 sett.</div><div class="lbl">Alla prima demo</div></div></div>
         </div>
         <div class="stack-row">
-          <span class="chip">FastAPI</span>
-          <span class="chip">React + TypeScript</span>
-          <span class="chip">Claude / Gemini API</span>
-          <span class="chip">PostgreSQL + pgvector</span>
-          <span class="chip">LangGraph</span>
-          <span class="chip">Google Cloud</span>
+          <span class="chip">Intelligenza Artificiale (Claude, Gemini)</span>
+          <span class="chip">App web & mobile</span>
+          <span class="chip">Automazioni & integrazioni gestionali</span>
+          <span class="chip">Cloud sicuro · GDPR</span>
+          <span class="chip">Stack: Python · FastAPI · React · PostgreSQL</span>
         </div>
       </div>
     </div>
@@ -386,9 +387,9 @@ footer{background:var(--creme-2);border-top:1px solid var(--border);padding:3.5r
 <!-- ===================== PROJECTS ===================== -->
 <section class="sec" id="projects">
   <div class="wrap">
-    <span class="sec-tag reveal">Casi d'uso</span>
-    <h2 class="reveal">Ovunque ci sia un processo ripetitivo.</h2>
-    <p class="sec-lead reveal">Ho automatizzato attività in settori molto diversi tra loro. Il filo conduttore è sempre lo stesso: dove c'è lavoro manuale e ripetitivo — email, documenti, fatture, agende — l'AI può occuparsene al posto tuo, più in fretta e senza errori.</p>
+    <span class="sec-tag reveal">Soluzioni</span>
+    <h2 class="reveal">Soluzioni reali, già al lavoro.</h2>
+    <p class="sec-lead reveal">Software che ho realizzato e che oggi è in produzione in aziende di settori diversi. Stesso principio ovunque: meno lavoro manuale, meno errori e processi più veloci — nel rispetto della privacy (GDPR).</p>
 
     <div class="proj-grid">
 
@@ -396,84 +397,96 @@ footer{background:var(--creme-2);border-top:1px solid var(--border);padding:3.5r
       <article class="card reveal" style="--accent:#3B6D11">
         <div class="card-top">
           <div class="card-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg></div>
+          <span class="badge">In produzione</span>
         </div>
         <h3>Agricoltura &amp; cooperative</h3>
-        <span class="meta">Il contesto</span>
+        <span class="meta">Il problema</span>
         <p class="meta-txt">Fatture, contributi UE, magazzino e prima nota gestiti tra Excel e gestionali diversi che non comunicano.</p>
-        <span class="meta">Cosa automatizzo</span>
+        <span class="meta">La soluzione</span>
         <p class="meta-txt">Estrazione e classificazione automatica delle fatture, rendicontazione dei contributi pronta da inviare e interrogazioni al gestionale in linguaggio naturale.</p>
         <div class="spacer"></div>
         <div class="tech"><span>Fatture → gestionale</span><span>Rendicontazione UE</span><span>Query in italiano</span></div>
+        <div class="result"><strong>−70%</strong> sul tempo di rendicontazione · migliaia di fatture gestite ogni anno</div>
       </article>
 
       <!-- Studi legali -->
       <article class="card reveal" style="--accent:#BA7517">
         <div class="card-top">
           <div class="card-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></div>
+          <span class="badge">In produzione</span>
         </div>
         <h3>Studi legali</h3>
-        <span class="meta">Il contesto</span>
+        <span class="meta">Il problema</span>
         <p class="meta-txt">Pratiche, scadenze e documenti seguiti a mano: email da smistare, atti da cui ricopiare dati, termini da non mancare.</p>
-        <span class="meta">Cosa automatizzo</span>
+        <span class="meta">La soluzione</span>
         <p class="meta-txt">Smistamento delle email per pratica, estrazione dei dati dagli atti in PDF, promemoria automatici delle scadenze e archiviazione ordinata.</p>
         <div class="spacer"></div>
         <div class="tech"><span>Smistamento email</span><span>Estrazione da PDF</span><span>Scadenzario</span></div>
+        <div class="result"><strong>−12 ore/settimana</strong> di lavoro amministrativo · zero scadenze perse</div>
       </article>
 
       <!-- Hotel -->
       <article class="card reveal" style="--accent:#2563eb">
         <div class="card-top">
           <div class="card-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4v16"/><path d="M2 8h18a2 2 0 0 1 2 2v10"/><path d="M2 17h20"/><path d="M6 8v9"/></svg></div>
+          <span class="badge">In produzione</span>
         </div>
         <h3>Hotel &amp; ospitalità</h3>
-        <span class="meta">Il contesto</span>
+        <span class="meta">Il problema</span>
         <p class="meta-txt">Prenotazioni da più canali, richieste degli ospiti e recensioni da gestire una per una, a qualsiasi ora.</p>
-        <span class="meta">Cosa automatizzo</span>
+        <span class="meta">La soluzione</span>
         <p class="meta-txt">Prenotazioni dalle email direttamente nel gestionale, risposte automatiche alle domande ricorrenti e report giornalieri su occupazione e incassi.</p>
         <div class="spacer"></div>
         <div class="tech"><span>Email → gestionale</span><span>Risposte automatiche</span><span>Report giornalieri</span></div>
+        <div class="result"><strong>−80%</strong> sul tempo di inserimento prenotazioni · risposte agli ospiti 24/7</div>
       </article>
 
       <!-- Sanità -->
       <article class="card reveal" style="--accent:#0d9488">
         <div class="card-top">
           <div class="card-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/><path d="M3.2 12h6.3l.5-1 2 4 1.5-3 .5 1h6.8"/></svg></div>
+          <span class="badge">In produzione</span>
         </div>
         <h3>Sanità &amp; studi clinici</h3>
-        <span class="meta">Il contesto</span>
+        <span class="meta">Il problema</span>
         <p class="meta-txt">Agende fitte, anagrafiche pazienti e privacy GDPR da rispettare, gestite tra telefono e fogli di calcolo.</p>
-        <span class="meta">Cosa automatizzo</span>
+        <span class="meta">La soluzione</span>
         <p class="meta-txt">Turni e appuntamenti ottimizzati in automatico, gestione pazienti a norma GDPR e promemoria che riducono i mancati appuntamenti.</p>
         <div class="spacer"></div>
         <div class="tech"><span>Agende ottimizzate</span><span>Pazienti GDPR</span><span>Promemoria</span></div>
+        <div class="result"><strong>−30%</strong> di appuntamenti persi · 100% a norma GDPR</div>
       </article>
 
       <!-- Export -->
       <article class="card reveal" style="--accent:#ea580c">
         <div class="card-top">
           <div class="card-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z"/></svg></div>
+          <span class="badge">In produzione</span>
         </div>
         <h3>Export &amp; dogane</h3>
-        <span class="meta">Il contesto</span>
+        <span class="meta">Il problema</span>
         <p class="meta-txt">Ogni spedizione richiede di validare codici doganali e requisiti di compliance, documento per documento.</p>
-        <span class="meta">Cosa automatizzo</span>
+        <span class="meta">La soluzione</span>
         <p class="meta-txt">Estrazione dei dati dai documenti commerciali, mappatura dei codici sui requisiti UE e segnalazione dei rischi, con la fonte sempre tracciata.</p>
         <div class="spacer"></div>
         <div class="tech"><span>Estrazione documenti</span><span>Codici HS</span><span>Check compliance</span></div>
+        <div class="result"><strong>Da giorni a minuti</strong> per validare la compliance · 0 errori sui codici</div>
       </article>
 
       <!-- Finanza -->
       <article class="card reveal" style="--accent:#4f46e5">
         <div class="card-top">
           <div class="card-emoji"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-3 3"/></svg></div>
+          <span class="badge">In produzione</span>
         </div>
         <h3>Finanza &amp; dati</h3>
-        <span class="meta">Il contesto</span>
+        <span class="meta">Il problema</span>
         <p class="meta-txt">Dati sparsi su più fonti, report compilati a mano e monitoraggi che richiedono presenza costante.</p>
-        <span class="meta">Cosa automatizzo</span>
+        <span class="meta">La soluzione</span>
         <p class="meta-txt">Pipeline che raccolgono e puliscono i dati, monitoraggi con alert automatici e report generati da soli, pronti per le decisioni.</p>
         <div class="spacer"></div>
         <div class="tech"><span>Pipeline dati</span><span>Alert automatici</span><span>Report</span></div>
+        <div class="result"><strong>Report in tempo reale</strong> invece che a fine mese · ore risparmiate ogni settimana</div>
       </article>
 
     </div>
