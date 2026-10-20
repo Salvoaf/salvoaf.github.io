@@ -28,7 +28,7 @@ Stili condivisi: `assets/site.css`. Menu mobile: `assets/site.js`.
 - Non sono stati inventati nomi di startup, clienti, fatturati o risultati quantitativi.
 - Le descrizioni dei progetti sono di livello sintetico per non diffondere informazioni riservate.
 - Verificare il testo finale e i collegamenti prima di fare merge su `main`.
-- Contatti: `salvoaranciofebbo@gmail.com`; LinkedIn: https://www.linkedin.com/in/salvatore-arancio-febbo-43b61a180/
+- Contatti: `salvatore@aranciofebbo.it`; LinkedIn: https://www.linkedin.com/in/salvatore-arancio-febbo-43b61a180/
 
 ## Anteprima locale
 

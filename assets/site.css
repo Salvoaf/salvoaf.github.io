@@ -267,3 +267,23 @@ h1 em,h2 em,h3 em{font-family:"Cormorant Garamond",Georgia,serif;font-style:ital
 .hero .hero-grid{padding:31px 18px 0}.hero h1{font-size:35px}
 .hero .hero-visual{height:290px;flex:0 0 290px;margin-top:-12px}.hero .hero-cutout{top:0;height:clamp(610px,177vw,690px);bottom:auto}.brand-name{font-size:7px}
 }
+
+/* Technical services: purposeful, commercial positioning */
+.services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:19px}
+.service-card{display:flex;flex-direction:column;align-items:flex-start;min-height:365px;padding:32px 29px;background:#fffdfa;border:1px solid #ded8d3;border-radius:22px;transition:transform .22s ease,box-shadow .22s ease}
+.service-card:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(38,37,42,.07)}
+.service-card:nth-child(2){background:#ece4de}
+.service-card-venture{background:#302e34;color:#fffdfa;border-color:#302e34}
+.service-index{font:800 10px/1.5 "Manrope",sans-serif;letter-spacing:.13em;color:#896257}
+.service-card-venture .service-index{color:#e7c1ae}
+.service-symbol{font:500 43px/1 "Manrope",sans-serif;color:#926451;margin:32px 0 18px}
+.service-card-venture .service-symbol{color:#efd6c9}
+.service-card h3{font-size:clamp(24px,2.2vw,31px);letter-spacing:-.052em;line-height:1.13;margin:0 0 15px}
+.service-card p{font-size:14px;line-height:1.72;color:#686269;margin:0 0 24px}
+.service-card-venture p{color:#ded9de}
+.service-card a{width:100%;margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:17px;border-top:1px solid #d9d0c9;font-size:13px;font-weight:800}
+.service-card-venture a{border-top-color:#645d63}
+.service-card a span{font-size:20px;transition:transform .2s}
+.service-card a:hover span{transform:translate(3px,-3px)}
+@media(max-width:950px){.services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.service-card-venture{grid-column:1/-1;min-height:280px}.service-symbol{margin:26px 0 15px}}
+@media(max-width:620px){.services-grid{grid-template-columns:1fr;gap:13px}.service-card{min-height:290px;padding:26px 23px}.service-card-venture{grid-column:auto;min-height:290px}.service-symbol{margin:24px 0 14px}.service-card h3{font-size:29px}}
