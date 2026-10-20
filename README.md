@@ -46,3 +46,6 @@ L'identità visiva prende i colori dalla fotografia professionale: grafite, grig
 - `images/saf-logo-original.png`: monogramma bronzo originale, usato in header, footer e favicon.
 
 La cartella originali è disponibile su Google Drive; queste copie servono al sito su GitHub Pages, senza dipendere dai permessi di Drive. Gli asset precedenti sono mantenuti per compatibilità e rollback.
+
+## Hero fotografica integrata · 20 ottobre 2026
+La homepage usa `images/salvatore-cutout.svg`, un ritratto con maschera trasparente ricostruita dalle immagini incorporate nello SVG originale. La navbar usa `images/saf-mark-clean.svg`, monogramma autentico con fondo trasparente. La pagina Chi sono usa `images/salvatore-original.png` ad alta risoluzione. Tutte le risorse sono locali al repository, senza richieste a Drive. Gli override CSS finali gestiscono il layout integrato e responsive.
