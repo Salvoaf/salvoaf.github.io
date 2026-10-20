@@ -19,7 +19,7 @@ Stili condivisi: `assets/site.css`. Menu mobile: `assets/site.js`.
 
 ## Asset esistenti riutilizzati
 
-- `images/profile.png`: ritratto già presente nel repository (verificare se coincide con la foto LinkedIn desiderata; sostituire solo quando disponibile l'originale autorizzato in alta risoluzione).
+- `images/salvatore-portrait.avif`: nuova fotografia professionale fornita dall'utente, ottimizzata per il sito (500 × 625). Il vecchio `images/profile.png` resta come fallback per browser senza supporto AVIF e come immagine social di riserva.
 - `documents/cv.pdf`: CV.
 - `documents/embodying-swarm-coordination.pdf`: pubblicazione scientifica.
 
