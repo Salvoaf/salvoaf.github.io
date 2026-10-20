@@ -33,3 +33,7 @@ Stili condivisi: `assets/site.css`. Menu mobile: `assets/site.js`.
 ## Anteprima locale
 
 Aprire `index.html` direttamente nel browser oppure usare `python -m http.server 8000` dalla root e visitare http://localhost:8000.
+
+## Identità visiva 2026 — portrait-led
+
+L'identità visiva prende i colori dalla fotografia professionale: grafite, grigio neutro, porcellana calda e rame sottile. Il design è volutamente sobrio, editorial e centrato sulla figura professionale. I token sono all'inizio di `assets/site.css` e le regole di rifinitura sono raggruppate nella sezione `PORTRAIT-LED EDITORIAL IDENTITY` in fondo al file.
