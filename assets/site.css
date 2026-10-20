@@ -766,3 +766,35 @@ h1 em,h2 em,h3 em{font-family:"Cormorant Garamond",Georgia,serif;font-style:ital
   .hero.problem-led h1{font-size:clamp(29px,8.2vw,34px)}
   .hero.problem-led .hero-hook{font-size:16px}
 }
+
+
+/* Mobile hero framing — reuse the EXISTING transparent WebP.
+   Show a crisp, larger head/torso/laptop and crop after the belt. */
+@media (max-width: 620px) {
+  .hero.problem-led .hero-visual {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+    height: clamp(360px, 106vw, 455px);
+    flex: 0 0 auto;
+    margin-top: -6px;
+    padding: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .hero.problem-led .hero-cutout {
+    position: absolute;
+    top: 0;
+    bottom: auto;
+    left: 51%;
+    width: auto;
+    height: clamp(755px, 212vw, 925px);
+    max-width: none;
+    transform: translateX(-50%);
+    object-fit: contain;
+    object-position: center top;
+    image-rendering: auto;
+  }
+}
