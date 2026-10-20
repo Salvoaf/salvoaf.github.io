@@ -798,3 +798,10 @@ h1 em,h2 em,h3 em{font-family:"Cormorant Garamond",Georgia,serif;font-style:ital
     image-rendering: auto;
   }
 }
+
+
+/* Mobile: disable page magnification gestures while preserving normal scrolling.
+   Browsers and user accessibility settings may override viewport zoom limits. */
+@media (max-width: 820px) and (pointer: coarse) {
+  html, body { touch-action: pan-x pan-y; }
+}
