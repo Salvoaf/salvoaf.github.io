@@ -176,3 +176,27 @@
  .live-services-viewport{overflow-x:auto;scrollbar-width:thin;mask-image:none;-webkit-mask-image:none}
  .live-services *{animation:none!important;transition:none!important}
 }
+
+
+/* Grab-and-release marquee: the motion is now controlled by JavaScript.
+   A pointer press holds the exact frame; releasing resumes the same 47px/s.
+   touch-action:pan-y preserves natural page scrolling on smartphones. */
+.live-services-viewport{
+  cursor:grab;
+  touch-action:pan-y;
+  -webkit-user-select:none;
+  user-select:none;
+  -webkit-touch-callout:none;
+}
+.live-services-viewport.is-dragging{cursor:grabbing}
+.live-rail{animation:none!important;will-change:transform}
+.live-card,.live-card *{-webkit-user-select:none;user-select:none}
+.live-services-viewport:focus-visible{
+  outline:2px solid #9b715e;
+  outline-offset:-2px;
+}
+@media(max-width:720px){.live-rail{animation:none!important}}
+@media(prefers-reduced-motion:reduce){
+  .live-services-viewport{overflow:hidden;cursor:grab}
+  .live-rail{animation:none!important}
+}

@@ -114,6 +114,122 @@
   }
   host.replaceChildren(rail);
 
+  // Interactive seamless marquee: hold to pause; drag at pointer speed;
+  // release to resume at the original continuous velocity.
+  const viewport = host;
+  const firstGroup = rail.firstElementChild;
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+  const AUTO_SPEED = 47; // pixels/second, visually matching the previous loop.
+  let cycleWidth = 0;
+  let offset = 0;
+  let dragging = false;
+  let heldPointer = null;
+  let startX = 0;
+  let startOffset = 0;
+  let lastFrame = 0;
+  let inView = true;
+
+  const wrap = value =>
+    cycleWidth > 0 ? ((value % cycleWidth) + cycleWidth) % cycleWidth : 0;
+
+  const render = () => {
+    rail.style.transform = "translate3d(" + (-offset) + "px,0,0)";
+  };
+
+  const measure = () => {
+    const newWidth = firstGroup.getBoundingClientRect().width;
+    if (!newWidth) return;
+    offset = cycleWidth ? offset * newWidth / cycleWidth : 0;
+    cycleWidth = newWidth;
+    offset = wrap(offset);
+    render();
+  };
+
+  const animate = now => {
+    const dt = lastFrame ? Math.min(80, Math.max(0, now - lastFrame)) : 0;
+    lastFrame = now;
+    if (cycleWidth && !dragging && !reduceMotion.matches &&
+        !document.hidden && inView) {
+      offset = wrap(offset + dt * AUTO_SPEED / 1000);
+      render();
+    }
+    requestAnimationFrame(animate);
+  };
+
+  viewport.tabIndex = 0;
+  viewport.setAttribute("role", "region");
+  viewport.setAttribute("aria-roledescription", "carosello");
+  viewport.setAttribute("aria-label",
+    "Altri servizi. Trascina per sfogliare, tieni premuto per fermare oppure usa le frecce.");
+
+  viewport.addEventListener("pointerdown", event => {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+    if (dragging) return;
+    dragging = true;
+    heldPointer = event.pointerId;
+    startX = event.clientX;
+    startOffset = offset;
+    viewport.classList.add("is-dragging");
+    if (event.pointerType === "mouse") event.preventDefault();
+    try { viewport.setPointerCapture(event.pointerId); } catch (_) {}
+  });
+
+  viewport.addEventListener("pointermove", event => {
+    if (!dragging || event.pointerId !== heldPointer) return;
+    // Follow the hand 1:1. Faster gestures naturally browse faster.
+    offset = wrap(startOffset - (event.clientX - startX));
+    render();
+  });
+
+  const release = event => {
+    if (!dragging || event.pointerId !== heldPointer) return;
+    dragging = false;
+    heldPointer = null;
+    viewport.classList.remove("is-dragging");
+    if (viewport.hasPointerCapture?.(event.pointerId)) {
+      try { viewport.releasePointerCapture(event.pointerId); } catch (_) {}
+    }
+    // The next animation frame resumes immediately, with no jump or reset.
+    lastFrame = performance.now();
+  };
+  viewport.addEventListener("pointerup", release);
+  viewport.addEventListener("pointercancel", release);
+  viewport.addEventListener("lostpointercapture", release);
+  viewport.addEventListener("dragstart", event => event.preventDefault());
+
+  // Horizontal trackpad motion and Shift+wheel browse the gallery quickly;
+  // a normal vertical wheel still scrolls the page as usual.
+  viewport.addEventListener("wheel", event => {
+    const horizontal = Math.abs(event.deltaX) > Math.abs(event.deltaY);
+    if (!horizontal && !event.shiftKey) return;
+    event.preventDefault();
+    offset = wrap(offset + (event.shiftKey && !horizontal ?
+      event.deltaY : event.deltaX) * 1.4);
+    render();
+  }, { passive: false });
+
+  viewport.addEventListener("keydown", event => {
+    if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+    event.preventDefault();
+    const step = rail.querySelector(".live-card")?.getBoundingClientRect().width || 270;
+    offset = wrap(offset + (event.key === "ArrowRight" ? 1 : -1) * (step + 16));
+    render();
+  });
+
+  if ("IntersectionObserver" in window) {
+    const motionObserver = new IntersectionObserver(entries => {
+      inView = entries.some(entry => entry.isIntersecting);
+      lastFrame = performance.now();
+    }, { threshold: 0.05 });
+    motionObserver.observe(viewport);
+  }
+  window.addEventListener("resize", measure);
+  document.addEventListener("visibilitychange", () => {
+    lastFrame = performance.now();
+  });
+  measure();
+  requestAnimationFrame(animate);
+
   // Live values are demo data, deliberately illustrative rather than real metrics.
   let frame = 0;
   const reduced = window.matchMedia("(prefers-reduced-motion: reduce)");
