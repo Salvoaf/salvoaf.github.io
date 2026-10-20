@@ -552,3 +552,157 @@ h1 em,h2 em,h3 em{font-family:"Cormorant Garamond",Georgia,serif;font-style:ital
  .startup-opportunities .startup-block h3{font-size:clamp(30px,8.2vw,39px)}
  .footer-brand img{width:65px;height:58px}
 }
+
+
+/* ABOUT / TIMELINE — editorial layout: portrait left, compact dated biography right. */
+.bio-section{
+  position:relative;
+  background:#f7f4f1;
+  padding:clamp(64px,7vw,112px) 0 clamp(82px,8vw,128px);
+}
+.bio-section .bio-layout{
+  width:min(calc(100% - 80px),1340px);
+  max-width:1340px;
+  display:grid;
+  grid-template-columns:minmax(0,.90fr) minmax(0,1.10fr);
+  align-items:start;
+  gap:clamp(45px,6vw,100px);
+}
+.bio-portrait{
+  position:sticky;
+  top:calc(88px + 26px);
+  margin:0;
+  height:clamp(560px,57vw,750px);
+  background:
+    radial-gradient(ellipse 74% 62% at 53% 46%,rgba(166,164,174,.60),transparent 84%),
+    linear-gradient(147deg,#dddce1 3%,#cbcbd2 63%,#bdbcc5 100%);
+  border-radius:25px;
+  overflow:hidden;
+  isolation:isolate;
+  box-shadow:0 25px 65px rgba(45,37,49,.09);
+}
+.bio-portrait::after{
+  content:"";
+  position:absolute;
+  inset:auto 0 0;
+  height:30%;
+  pointer-events:none;
+  background:linear-gradient(0deg,rgba(61,57,65,.15),transparent);
+  z-index:2;
+}
+.bio-portrait img{
+  position:absolute;
+  width:113%;
+  max-width:none;
+  height:auto;
+  left:50%;
+  bottom:-5px;
+  transform:translateX(-50%);
+  object-fit:contain;
+  image-rendering:auto;
+  filter:drop-shadow(0 12px 21px rgba(31,27,36,.08));
+}
+.bio-content{padding:clamp(4px,2vw,26px) 0 0}
+.bio-heading h1{
+  font-size:clamp(49px,5.2vw,75px);
+  line-height:1;
+  margin:0 0 16px;
+  letter-spacing:-.063em;
+}
+.bio-heading p{
+  max-width:620px;
+  font-size:clamp(15px,1.28vw,18px);
+  line-height:1.68;
+  color:#6d676d;
+  margin:0 0 30px;
+}
+.bio-timeline{
+  border-top:1px solid #d9d1ca;
+  margin-top:8px;
+}
+.bio-event{
+  display:grid;
+  grid-template-columns:73px minmax(0,1fr);
+  gap:27px;
+  align-items:start;
+  border-bottom:1px solid #e1d9d3;
+  padding:18px 0 19px;
+}
+.bio-event time{
+  font:800 15px/1.6 "Manrope",sans-serif;
+  letter-spacing:-.035em;
+  color:#986452;
+}
+.bio-event p{
+  font-size:14px;
+  line-height:1.65;
+  color:#615c61;
+  margin:0;
+}
+.bio-event p strong{
+  font-weight:800;
+  color:#302c32;
+}
+.bio-event a{
+  display:inline-flex;
+  white-space:nowrap;
+  align-items:center;
+  gap:5px;
+  margin-left:4px;
+  border-bottom:1px solid #a97a67;
+  color:#92614e;
+  font-size:12px;
+  line-height:1.4;
+  font-weight:800;
+}
+.bio-event a span{font-size:14px}
+.bio-actions{
+  display:flex;
+  align-items:center;
+  gap:26px;
+  flex-wrap:wrap;
+  margin-top:31px;
+}
+.bio-actions .btn{
+  border-radius:999px;
+  background:#363238;
+  color:#fffdfa;
+  border-color:#363238;
+  padding:16px 25px;
+}
+.bio-actions .btn:hover{background:#80584b;border-color:#80584b}
+.bio-cv-link{
+  display:inline-flex;
+  align-items:center;
+  gap:18px;
+  border-bottom:1px solid #b68a78;
+  padding-bottom:6px;
+  color:#342f33;
+  font-size:13px;
+  font-weight:800;
+}
+@media(max-width:1050px){
+  .bio-section .bio-layout{gap:42px;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}
+  .bio-portrait{height:620px}
+  .bio-portrait img{width:120%}
+  .bio-event{gap:14px;grid-template-columns:61px minmax(0,1fr)}
+  .bio-event p{font-size:13.5px}
+}
+@media(max-width:780px){
+  .bio-section{padding:35px 0 75px}
+  .bio-section .bio-layout{width:min(calc(100% - 36px),560px);grid-template-columns:1fr;gap:34px}
+  .bio-portrait{position:relative;top:auto;height:clamp(375px,88vw,530px);border-radius:22px}
+  .bio-portrait img{width:min(110%,590px);bottom:-8px}
+  .bio-content{padding:0 4px}
+  .bio-heading h1{font-size:clamp(43px,9vw,58px);margin-bottom:13px}
+  .bio-heading p{font-size:15px;margin-bottom:23px}
+  .bio-event{grid-template-columns:62px minmax(0,1fr);gap:13px;padding:16px 0}
+  .bio-event time{font-size:14px}
+  .bio-event p{font-size:13.5px;line-height:1.67}
+  .bio-actions{margin-top:27px;gap:22px}
+}
+@media(max-width:390px){
+  .bio-portrait{height:345px}
+  .bio-portrait img{width:113%}
+  .bio-event{grid-template-columns:55px minmax(0,1fr);gap:10px}
+}
