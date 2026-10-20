@@ -19,7 +19,7 @@ Stili condivisi: `assets/site.css`. Menu mobile: `assets/site.js`.
 
 ## Asset esistenti riutilizzati
 
-- `images/profile.png`: ritratto già presente nel repository (verificare se coincide con la foto LinkedIn desiderata; sostituire solo quando disponibile l'originale autorizzato in alta risoluzione).
+- `images/salvatore-portrait.avif`: nuova fotografia professionale fornita dall'utente, ottimizzata per il sito (500 × 625). Il vecchio `images/profile.png` resta come fallback per browser senza supporto AVIF e come immagine social di riserva.
 - `documents/cv.pdf`: CV.
 - `documents/embodying-swarm-coordination.pdf`: pubblicazione scientifica.
 
@@ -33,3 +33,7 @@ Stili condivisi: `assets/site.css`. Menu mobile: `assets/site.js`.
 ## Anteprima locale
 
 Aprire `index.html` direttamente nel browser oppure usare `python -m http.server 8000` dalla root e visitare http://localhost:8000.
+
+## Identità visiva 2026 — portrait-led
+
+L'identità visiva prende i colori dalla fotografia professionale: grafite, grigio neutro, porcellana calda e rame sottile. Il design è volutamente sobrio, editorial e centrato sulla figura professionale. I token sono all'inizio di `assets/site.css` e le regole di rifinitura sono raggruppate nella sezione `PORTRAIT-LED EDITORIAL IDENTITY` in fondo al file.
