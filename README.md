@@ -37,3 +37,12 @@ Aprire `index.html` direttamente nel browser oppure usare `python -m http.server
 ## Identità visiva 2026 — portrait-led
 
 L'identità visiva prende i colori dalla fotografia professionale: grafite, grigio neutro, porcellana calda e rame sottile. Il design è volutamente sobrio, editorial e centrato sulla figura professionale. I token sono all'inizio di `assets/site.css` e le regole di rifinitura sono raggruppate nella sezione `PORTRAIT-LED EDITORIAL IDENTITY` in fondo al file.
+
+## Asset ufficiali (Google Drive, 20 ottobre 2026)
+
+- `images/salvatore-original.png`: ritratto originale 1122 × 1402, usato in Home e Chi sono (sostituisce l'AVIF precedente, di appena 5 KB).
+- `images/salvatore-with-background.svg`: SVG sorgente con sfondo (contiene dati raster incorporati).
+- `images/salvatore-no-background.svg`: versione SVG sorgente senza sfondo; da verificare nei diversi browser prima dell'uso come trasparenza.
+- `images/saf-logo-original.png`: monogramma bronzo originale, usato in header, footer e favicon.
+
+La cartella originali è disponibile su Google Drive; queste copie servono al sito su GitHub Pages, senza dipendere dai permessi di Drive. Gli asset precedenti sono mantenuti per compatibilità e rollback.
