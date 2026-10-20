@@ -421,3 +421,54 @@ h1 em,h2 em,h3 em{font-family:"Cormorant Garamond",Georgia,serif;font-style:ital
 @media(max-width:950px){.bespoke-layout{gap:25px}.bespoke-sticky{top:100px}.bespoke-phase{padding:28px 24px}}
 @media(max-width:700px){.bespoke-layout{display:flex;flex-direction:column;gap:22px}.bespoke-sticky{position:static;padding:0 0 12px}.bespoke-sticky h2{font-size:clamp(38px,9vw,49px)}.bespoke-sticky p{font-size:14px}.bespoke-aside{margin-top:19px}.bespoke-stack{width:100%;gap:14px}.bespoke-phase{min-height:0;padding:27px 23px}.bespoke-index{font-size:45px}.bespoke-index small{font-size:9px}.bespoke-phase h3{font-size:27px;margin:20px 0 10px}.bespoke-phase p{font-size:13px}.marquee-unit{gap:13px;padding-right:13px}.graphic-marquee .special-card{width:248px;flex-basis:248px;min-height:338px}.graphic-marquee .special-art{height:202px}.graphic-marquee .special-content{padding:20px}.graphic-marquee .special-content h3{font-size:20px}.marquee-rail{animation-duration:46s}.marquee-window{mask-image:linear-gradient(90deg,transparent,black 2%,black 98%,transparent)}}
 @media(prefers-reduced-motion:reduce){.bespoke-phase{transition:none;transform:none;opacity:1}.bespoke-phase.is-active{transform:none}.marquee-rail{animation:none;will-change:auto}.marquee-window{overflow-x:auto;-webkit-mask-image:none;mask-image:none;scrollbar-width:thin}}
+
+
+/* PHOTO REFRESH 2026 — actual source photographs with clean transparent cutouts */
+.hero .hero-cutout{
+  top:56px;
+  left:51%;
+  height:calc(100% + 130px);
+  max-width:none;
+  object-fit:contain;
+  object-position:center top;
+  image-rendering:auto;
+}
+.about-feature .about-portrait{
+  height:550px;
+  overflow:hidden;
+  border:0;
+  border-radius:0;
+  background:radial-gradient(ellipse 65% 75% at 50% 57%,rgba(141,144,159,.21),rgba(223,221,217,0) 90%);
+}
+.about-feature .about-portrait::after{display:none}
+.about-feature .about-portrait img{
+  position:absolute;
+  bottom:-4px;
+  left:50%;
+  transform:translateX(-50%);
+  display:block;
+  width:100%;
+  max-width:590px;
+  height:auto;
+  object-fit:contain;
+  object-position:center bottom;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 80%,transparent 100%);
+  mask-image:linear-gradient(to bottom,#000 0%,#000 80%,transparent 100%);
+}
+@media(max-width:1080px) and (min-width:821px){
+ .hero .hero-cutout{top:55px;left:51%;height:calc(100% + 110px)}
+}
+@media(max-width:820px) and (min-width:621px){
+ .hero .hero-cutout{top:52px;left:53%;height:calc(100% + 75px)}
+ .about-feature .about-portrait{height:500px}
+}
+@media(max-width:620px){
+ .hero .hero-visual{height:310px;flex:0 0 310px;margin-top:-12px}
+ .hero .hero-cutout{top:3px;left:51%;height:clamp(440px,134vw,540px)}
+ .about-feature .about-portrait{height:355px;max-width:410px;margin-inline:auto}
+ .about-feature .about-portrait img{max-width:410px}
+}
+@media(max-width:390px){
+ .hero .hero-visual{height:288px;flex-basis:288px}
+ .hero .hero-cutout{height:440px}
+}
