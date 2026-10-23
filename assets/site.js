@@ -48,4 +48,16 @@
     window.addEventListener("resize", schedule);
     highlight();
   }
+
+  // Fade portfolio blocks in once as they enter the viewport.
+  const reveals = document.querySelectorAll("[data-reveal]");
+  if (reveals.length && "IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.documentElement.classList.add("pf-reveal-ready");
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add("is-visible"); observer.unobserve(entry.target); }
+      });
+    }, {rootMargin:"0px 0px -8% 0px", threshold:0.08});
+    reveals.forEach(el => observer.observe(el));
+  }
 })();

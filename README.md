@@ -10,6 +10,7 @@ Il sito funziona direttamente da root su GitHub Pages, senza build, dipendenze o
 
 - `index.html` — Homepage
 - `progetti.html` — Ambiti e progetti
+- `portfolio/index.html` — Portfolio: progetti realizzati con Digimark e ICOSE (stili in `assets/portfolio.css`, loghi in `images/portfolio/`)
 - `startup.html` — Visione imprenditoriale
 - `chi-sono.html` — Biografia e percorso
 - `insights.html` — Ricerca e riflessioni
