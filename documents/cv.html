@@ -9,7 +9,7 @@
 *{box-sizing:border-box}
 @page{size:A4;margin:0}
 html{background:#d9d4cf}
-body{margin:0;font:400 9.4pt/1.5 "DM Sans",system-ui,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+body{margin:0;font:400 9.2pt/1.45 "DM Sans",system-ui,sans-serif;color:var(--ink);-webkit-print-color-adjust:exact;print-color-adjust:exact}
 .page{width:210mm;min-height:297mm;margin:10mm auto;padding:13mm 15mm 12mm;background:var(--paper);box-shadow:0 10px 40px rgba(0,0,0,.12);position:relative}
 @media print{html{background:none}.page{margin:0;box-shadow:none;height:297mm;overflow:hidden}.page+.page{break-before:page}}
 a{color:inherit;text-decoration:none}
@@ -27,10 +27,10 @@ em{font-family:"Cormorant Garamond",serif;font-style:italic;font-weight:600;colo
 .cv-contacts a{border-bottom:1px solid var(--line)}
 
 /* Sections */
-section{margin-top:5.2mm}
+section{margin-top:4.6mm}
 h2{display:flex;align-items:center;gap:3mm;font-size:8pt;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:2.6mm}
 h2::after{content:"";flex:1;height:1px;background:var(--line)}
-.profile{font-size:10pt;line-height:1.6;margin:0}
+.profile{font-size:9.7pt;line-height:1.55;margin:0}
 
 .wins{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3.5mm;border:1px solid var(--line);border-radius:2.5mm;overflow:hidden}
 .wins div{padding:2.6mm 3mm;background:var(--accent-soft)}
@@ -42,7 +42,7 @@ h2::after{content:"";flex:1;height:1px;background:var(--line)}
 .skills dt{font:700 8.4pt/1.5 "Manrope",sans-serif}
 .skills dd{margin:0;color:var(--muted)}
 
-.item{break-inside:avoid;margin-bottom:3.6mm}
+.item{break-inside:avoid;margin-bottom:3mm}
 .item:last-child{margin-bottom:0}
 .item-head{display:flex;justify-content:space-between;align-items:baseline;gap:4mm}
 .item h3{font-size:10.4pt;font-weight:800;letter-spacing:-.02em}
@@ -63,6 +63,7 @@ h2::after{content:"";flex:1;height:1px;background:var(--line)}
 
 .cv-foot{position:absolute;left:15mm;right:15mm;bottom:8mm;display:flex;justify-content:space-between;gap:6mm;font-size:6.8pt;line-height:1.4;color:#8a868c}
 .cv-foot .privacy{max-width:150mm}
+.wins strong{font-size:10.5pt;letter-spacing:-.025em;line-height:1.15}
 </style></head><body>
 
 <div class="page">
@@ -70,98 +71,54 @@ h2::after{content:"";flex:1;height:1px;background:var(--line)}
 <div class="cv-photo"><img src="../images/salvatore-cv-photo.jpg" alt="Salvatore Arancio Febbo"></div>
 <div>
 <h1>Salvatore Arancio Febbo</h1>
-<p class="cv-role">AI Engineer <span>·</span> Sistemi LLM, AI documentale e backend Python</p>
-<div class="cv-contacts"><a href="mailto:salvatore@aranciofebbo.it">salvatore@aranciofebbo.it</a><a href="tel:+393663046611">+39 366 304 6611</a><span>Vittoria (RG) · disponibile da remoto</span><a href="https://salvatore.aranciofebbo.it/portfolio/">salvatore.aranciofebbo.it/portfolio</a><a href="https://www.linkedin.com/in/salvatore-arancio-febbo-43b61a180/">linkedin.com/in/salvatore-arancio-febbo-43b61a180</a></div>
+<p class="cv-role">AI Engineer <span>·</span> Sistemi agentici e LLM <span>·</span> Prodotti full-stack end-to-end</p>
+<div class="cv-contacts"><a href="mailto:salvatore@aranciofebbo.it">salvatore@aranciofebbo.it</a><a href="tel:+393663046611">+39 366 304 6611</a><span>Vittoria (RG)</span><a href="https://salvatore.aranciofebbo.it/portfolio/">salvatore.aranciofebbo.it/portfolio</a><a href="https://www.linkedin.com/in/salvatore-arancio-febbo-43b61a180/">linkedin.com/in/salvatore-arancio-febbo-43b61a180</a></div>
 </div>
 </header>
 
 <section>
 <h2>Profilo</h2>
-<p class="profile">Ingegnere AI con laurea magistrale in Artificial Intelligence &amp; Data Engineering all'Università di Pisa e ricerca pubblicata in una conferenza IEEE. Porto in produzione sistemi AI per aziende manifatturiere, sanitarie e agroalimentari: <b>agenti LLM, RAG, lettura automatica di documenti e machine learning</b>. Seguo l'intera catena, dall'analisi dei processi al backend Python, ai database, al frontend e al deploy. Scelgo modelli e architetture con benchmark misurati sui dati reali del cliente, non a intuito.</p>
+<p class="profile">AI Engineer specializzato in <b>sistemi agentici</b>: agenti LLM che ragionano, pianificano, usano strumenti e lavorano su dati reali, con l'essere umano al posto giusto nel ciclo decisionale. Costruisco <b>prodotti completi da solo, dall'analisi del processo al rilascio</b>: architettura, backend Python e TypeScript, database, frontend React, infrastruttura e deploy. Laurea magistrale in Artificial Intelligence &amp; Data Engineering all'Università di Pisa, dove continuo a fare ricerca sugli agenti AI.</p>
 <div class="wins">
-<div><strong>96,9%</strong><span>accuratezza nella lettura AI dei documenti di trasporto, a 0,0015 $ per bolla</span></div>
-<div><strong>35/36</strong><span>piani di manutenzione estratti da manuali tecnici, 0 periodicità errate</span></div>
-<div><strong>AUC 0,80</strong><span>modello predittivo di abbandono del personale, 78,6% dei casi individuati</span></div>
-<div><strong>IEEE</strong><span>paper peer-reviewed su swarm intelligence, ICAI-TEMS 2025</span></div>
+<div><strong>Agenti AI</strong><span>pianificazione, tool use, MCP e sistemi multi-agente con controllo umano</span></div>
+<div><strong>Sistemi LLM</strong><span>RAG, AI documentale, voce e dati non strutturati trasformati in processi</span></div>
+<div><strong>Full-stack end-to-end</strong><span>backend, database, frontend, cloud e deploy, un solo interlocutore</span></div>
+<div><strong>Dal processo al prodotto</strong><span>analisi BPMN, scoping e architettura prima di scrivere codice</span></div>
 </div>
 </section>
 
 <section>
 <h2>Competenze tecniche</h2>
 <dl class="skills">
-<dt>AI e LLM</dt><dd>Claude, OpenAI e Gemini API · agenti LLM e tool use · MCP · RAG · LangGraph · prompt engineering · OCR (Tesseract) · speech-to-text (Whisper)</dd>
-<dt>Machine learning</dt><dd>scikit-learn · PyTorch · TensorFlow/Keras · pandas · NumPy · computer vision · ottimizzazione con OR-Tools CP-SAT</dd>
-<dt>Backend e dati</dt><dd>Python · FastAPI · SQLAlchemy · REST API · PostgreSQL (Row-Level Security, multi-tenancy) · MongoDB · Neo4j · SQL · TypeScript con Fastify e Prisma</dd>
-<dt>Frontend</dt><dd>React · Next.js · TypeScript · JavaScript · Tailwind CSS · shadcn/ui</dd>
+<dt>Agenti AI</dt><dd>agenti LLM e tool use · MCP · LangGraph · architetture multi-agente · orchestrazione e human-in-the-loop · n8n</dd>
+<dt>LLM e AI documentale</dt><dd>Claude, OpenAI e Gemini API · RAG · prompt engineering · output strutturati · OCR (Tesseract) · speech-to-text (Whisper)</dd>
+<dt>Backend e dati</dt><dd>Python · FastAPI · SQLAlchemy · TypeScript · Fastify · Prisma · REST API · PostgreSQL (Row-Level Security, multi-tenancy) · MongoDB · Neo4j</dd>
+<dt>Frontend</dt><dd>React · Next.js · TypeScript · Tailwind CSS · shadcn/ui · PWA mobile-first</dd>
 <dt>Cloud e DevOps</dt><dd>Docker e Docker Compose · Linux e VPS · Google Cloud · CI · test end-to-end con Playwright · Git</dd>
-<dt>Processi e altro</dt><dd>BPMN/UML (AS-IS / TO-BE) · n8n · IoT (MQTT, CoAP) · Grafana · Spark e Hadoop · ROS · Java · C/C++ · MATLAB</dd>
+<dt>Machine learning</dt><dd>scikit-learn · PyTorch · TensorFlow/Keras · pandas · NumPy · computer vision · OR-Tools CP-SAT</dd>
+<dt>Processi e altro</dt><dd>BPMN/UML (AS-IS / TO-BE) · IoT (MQTT, CoAP) · Grafana · Spark e Hadoop · ROS · Java · C/C++</dd>
 </dl>
 </section>
 
 <section>
 <h2>Esperienza</h2>
 <article class="item">
-<div class="item-head"><h3>AI Engineer e sviluppatore software <small>· Freelance, P. IVA · da remoto</small></h3><time>2026 – OGGI</time></div>
-<div class="client">
-<p><b>Digimark</b> (software MES e WMS per la manifattura): servizi AI per i clienti finali. <b>Lettura AI dei documenti di trasporto</b> con pipeline OCR, raddrizzamento geometrico e Gemini (96,9% di accuratezza, benchmark su 7 modelli); <b>estrazione dei piani di manutenzione</b> da manuali tecnici con ancoraggio al testo; <b>monitoraggio IoT</b> con alert deterministici; <b>smistamento automatico degli ordini</b> via email verso il gestionale.</p>
-<p><b>ICOSE S.p.A.</b> (calcestruzzi e asfalti): <b>gestionale di cantiere</b> per rapportini, approvazioni, personale e produzione materiali. Next.js e React, Fastify e Prisma su PostgreSQL, Google Cloud, controllo accessi per ruolo e audit trail, import da SharePoint, oltre 480 commit con test d'integrazione ed E2E.</p>
-</div>
+<div class="item-head"><h3>AI Engineer e sviluppatore full-stack <small>· Freelance, P. IVA</small></h3><time>2026 – OGGI</time></div>
 <ul>
-<li>Conduco l'<b>analisi di processo con BPMN AS-IS / TO-BE</b> prima di sviluppare: i requisiti dichiarati raramente coincidono con il lavoro reale, e così si riducono rework e cambi di scope.</li>
-<li>Redigo <b>scoping, architettura e SOW</b> formali, così il committente conosce perimetro, tempi e costi prima di iniziare.</li>
-<li>Integro <b>Claude, OpenAI o Gemini</b> in base a costo, latenza e riservatezza, senza legare il sistema a un solo fornitore. Dove i dati non possono uscire dall'azienda, porto le soluzioni in produzione su infrastruttura self-hosted (Docker su VPS Linux).</li>
-</ul>
-</article>
-</section>
-</div>
-
-<div class="page">
-<section style="margin-top:0">
-<h2>Esperienza · continua</h2>
-<article class="item">
-<div class="item-head"><h3>Research Fellow <small>· Università di Pisa · ibrido</small></h3><time>2024 – OGGI</time></div>
-<ul>
-<li>Ricerca applicata sull'AI per i processi amministrativi del settore agricolo: una <b>mappatura BPMN gerarchica a tre livelli</b> che è diventata la base di un'<b>architettura multi-agente basata su MCP</b>.</li>
-<li>Implementazione di algoritmi di <b>swarm intelligence</b> (flocking, coordinamento a feromoni) per la navigazione autonoma di sistemi robotici multi-dominio, confluita in un <b>paper IEEE peer-reviewed</b>.</li>
-<li>Coordinamento tecnico del progetto e supervisione dei tesisti: suddivisione del lavoro e revisione del codice.</li>
+<li>Progetto e sviluppo <b>sistemi agentici e prodotti software end-to-end</b> per aziende manifatturiere, edili, sanitarie e agroalimentari, seguendo da solo analisi, architettura, backend, frontend e messa in produzione.</li>
+<li>Parto dall'<b>analisi del processo con BPMN AS-IS / TO-BE</b> e da <b>scoping, architettura e SOW</b> formali: il cliente conosce perimetro, tempi e costi prima che si scriva codice.</li>
+<li>Integro <b>Claude, OpenAI o Gemini</b> in base a costo, latenza e riservatezza, senza legare il sistema a un solo fornitore, e rilascio su cloud o su infrastruttura self-hosted quando i dati non possono uscire dall'azienda.</li>
 </ul>
 </article>
 <article class="item">
-<div class="item-head"><h3>Machine Learning Engineer <small>· Società di consulenza e sviluppo digitale · da remoto</small></h3><time>NOV 2025 – FEB 2026</time></div>
+<div class="item-head"><h3>Research Fellow <small>· Università di Pisa</small></h3><time>2024 – OGGI</time></div>
 <ul>
-<li>Consegnato in poche settimane un <b>MVP completo</b> (note vocali, elaborazione AI, dashboard web) che ha portato la tracciabilità degli interventi di manutenzione dalla carta al digitale.</li>
-<li>Sviluppato un <b>modello predittivo di attrition</b> con feature ranking: alle risorse umane non arriva solo una probabilità, ma i fattori su cui intervenire.</li>
-<li>Definiti scope, architettura e pricing di due interventi AI (bot WhatsApp per data entry conversazionale e sistema RAG documentale), con SOW formali presentati al committente.</li>
+<li>Ricerca applicata sugli <b>agenti AI</b> per i processi amministrativi del settore agricolo: una mappatura BPMN gerarchica a tre livelli come base di un'<b>architettura multi-agente basata su MCP</b>.</li>
+<li>Algoritmi di <b>swarm intelligence</b> (flocking, coordinamento a feromoni) per la navigazione autonoma di sistemi robotici multi-dominio, pubblicati in un <b>paper IEEE peer-reviewed</b>.</li>
+<li>Coordinamento tecnico del progetto e supervisione dei tesisti, con revisione del codice.</li>
 </ul>
 </article>
 
-</section>
-
-<section>
-<h2>Progetti selezionati</h2>
-<article class="item">
-<div class="item-head"><h3>Segnalazione vocale dei fermi macchina in stabilimento</h3><time>2026</time></div>
-<ul>
-<li>Flusso <b>voice-first</b>: l'operatore descrive il guasto a voce e un agente Claude estrae macchina, componente e causa. Niente moduli cartacei né reinserimenti manuali.</li>
-<li>Trascrizione (Groq Whisper) separata dall'estrazione strutturata (Claude API), con <b>retrieval sull'anagrafica viva</b> invece di un classificatore addestrato: una macchina nuova funziona dal giorno stesso.</li>
-<li>Backend <b>multi-tenant FastAPI con Row-Level Security</b> su PostgreSQL, bot Telegram per il campo e dashboard React. La conferma umana prima della scrittura a DB è un vincolo architetturale.</li>
-</ul>
-</article>
-<article class="item">
-<div class="item-head"><h3>Planner ottimizzato per le sedute di uno studio di psicologia</h3><time>2025 – 2026</time></div>
-<ul>
-<li>Assegnazione delle sedute modellata come <b>ottimizzazione vincolata con OR-Tools CP-SAT</b> (disponibilità dei terapeuti, turnazione delle stanze, ricorrenze): calendari fattibili in pochi secondi.</li>
-<li>Planner a risorse con backend FastAPI e vista timeline per terapeuta e stanza: il calendario settimanale passa <b>da ore di segreteria a pochi minuti</b>.</li>
-</ul>
-</article>
-<article class="item">
-<div class="item-head"><h3>Automazione documentale e RAG normativo per l'agroalimentare</h3><time>2025 – 2026</time></div>
-<ul>
-<li>Generazione automatica di <b>XML FatturaPA validi</b> da email e documenti non strutturati con Claude API, eliminando il data entry manuale di un ufficio amministrativo.</li>
-<li><b>Sistema RAG</b> sui prodotti fitosanitari del Ministero, arricchito con i disciplinari regionali, che risponde in linguaggio naturale a domande di conformità.</li>
-<li>Persistenza poliglotta: MongoDB per i documenti versionati, PostgreSQL come schema registry.</li>
-</ul>
-</article>
 </section>
 
 <section>
@@ -171,6 +128,73 @@ h2::after{content:"";flex:1;height:1px;background:var(--line)}
 <span><b>Laurea triennale in Ingegneria Informatica</b> · Università di Pisa</span><time>2015 – 2021</time>
 </div>
 </section>
+</div>
+
+<div class="page">
+<section style="margin-top:0">
+<h2>Esperienza · continua</h2>
+<article class="item">
+<div class="item-head"><h3>Machine Learning Engineer <small>· Società di consulenza e sviluppo digitale</small></h3><time>NOV 2025 – FEB 2026</time></div>
+<ul>
+<li>Sviluppato un <b>MVP completo</b> (note vocali, elaborazione AI, dashboard web) per portare la tracciabilità degli interventi di manutenzione dalla carta al digitale.</li>
+<li><b>Modello predittivo di attrition</b> con feature ranking, per indicare alle risorse umane i fattori su cui intervenire. Definiti scope, architettura e SOW di un bot WhatsApp conversazionale e di un sistema RAG documentale.</li>
+</ul>
+</article>
+</section>
+
+<section>
+<h2>Progetti</h2>
+<article class="item">
+<div class="item-head"><h3>Agente vocale per la segnalazione dei fermi macchina</h3><time>2026</time></div>
+<ul>
+<li>L'operatore descrive il guasto a voce e un <b>agente Claude</b> estrae macchina, componente e causa con <b>retrieval sull'anagrafica viva</b> e conferma umana prima della scrittura a DB. Whisper, backend <b>multi-tenant FastAPI con Row-Level Security</b> su PostgreSQL, bot Telegram e dashboard React.</li>
+</ul>
+</article>
+<article class="item">
+<div class="item-head"><h3>Agenti AI per la sicurezza informatica delle filiere</h3><time>2026</time></div>
+<ul>
+<li>Architettura di una piattaforma in cui <b>agenti AI pianificano in più passi</b>, scelgono le verifiche in modo adattivo, collaudano strumenti in <b>ambienti virtualizzati e isolati</b> e producono evidenze tracciabili sui rischi di un'impresa e dei suoi fornitori.</li>
+</ul>
+</article>
+<article class="item">
+<div class="item-head"><h3>Lettura AI dei documenti di trasporto</h3><time>2026</time></div>
+<ul>
+<li>Pipeline che separa e raddrizza le scansioni (Tesseract, NumPy), le legge con un <b>LLM multimodale</b> in output JSON strutturato, inclusa la scrittura a mano, e valida i dati con regole deterministiche. Web app <b>FastAPI e React</b> con avanzamento in tempo reale, correzione ed export.</li>
+</ul>
+</article>
+<article class="item">
+<div class="item-head"><h3>Assistente AI per manutenzione, formazione e costi dei modelli</h3><time>2026</time></div>
+<ul>
+<li>Servizio multi-azienda che estrae i <b>piani di manutenzione dai manuali tecnici</b> con conferma dell'utente e ancoraggio al testo originale, genera <b>questionari dai materiali dei corsi</b> e traccia la spesa per chiamata con isolamento tra aziende.</li>
+</ul>
+</article>
+<article class="item">
+<div class="item-head"><h3>Gestionale full-stack per cantieri, personale e produzione</h3><time>2026</time></div>
+<ul>
+<li>Piattaforma <b>end-to-end</b>: PWA mobile per i rapportini, approvazioni, gestione del personale, chiusura del mese e import automatico della produzione da SharePoint. <b>Next.js, React, Fastify, Prisma, PostgreSQL</b> su Google Cloud, con controllo accessi per ruolo, audit trail e test E2E.</li>
+</ul>
+</article>
+<article class="item">
+<div class="item-head"><h3>Monitoraggio intelligente di persone ed energia</h3><time>2025 – 2026</time></div>
+<ul>
+<li>Questionari automatici sul benessere del personale con modello predittivo spiegabile, e monitoraggio continuo dei sensori IoT con <b>motore di alert</b> configurabile (filtri temporali, anti-flapping, notifiche email e storico).</li>
+</ul>
+</article>
+<article class="item">
+<div class="item-head"><h3>Automazione documentale e RAG normativo per l'agroalimentare</h3><time>2025 – 2026</time></div>
+<ul>
+<li>Generazione di <b>XML FatturaPA</b> da email e documenti non strutturati con Claude API, e <b>sistema RAG</b> sui prodotti fitosanitari e sui disciplinari regionali che risponde a domande di conformità. Persistenza poliglotta MongoDB e PostgreSQL.</li>
+</ul>
+</article>
+<article class="item">
+<div class="item-head"><h3>Planner ottimizzato per uno studio di psicologia</h3><time>2025 – 2026</time></div>
+<ul>
+<li>Assegnazione delle sedute come <b>ottimizzazione vincolata con OR-Tools CP-SAT</b> (terapeuti, stanze, ricorrenze), con backend FastAPI e vista timeline per terapeuta e stanza.</li>
+</ul>
+</article>
+</section>
+
+
 
 <section class="two">
 <div>
