@@ -28,7 +28,7 @@
 
 /* Flow diagram: start -> three steps -> result, connected by a rail with arrowheads. */
 .pf-flow{--node-gap:28px;list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:var(--node-gap)}
-.pf-flow li{position:relative;display:flex;flex-direction:column;gap:10px;min-height:128px;padding:20px 18px;background:var(--white);border:1px solid var(--line);border-radius:12px;font:700 15px/1.4 "Manrope",sans-serif;letter-spacing:-.015em}
+.pf-flow li{position:relative;display:flex;flex-direction:column;gap:10px;min-height:108px;padding:20px 18px;background:var(--white);border:1px solid var(--line);border-radius:12px;font:700 15px/1.4 "Manrope",sans-serif;letter-spacing:-.015em}
 .pf-flow small{font:800 10px/1.4 "Manrope",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 .pf-flow li:first-child{background:transparent;border-style:dashed}
 .pf-flow li:last-child{background:var(--ink);border-color:var(--ink);color:#fffdfa}
